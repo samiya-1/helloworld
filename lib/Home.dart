@@ -11,6 +11,8 @@ import 'package:helloworld/payment_details.dart';
 import 'package:helloworld/product.dart';
 import 'package:helloworld/products.dart';
 
+import 'Chat_Home.dart';
+import 'Complaint_details.dart';
 import 'complaint.dart';
 import 'method_technique.dart';
 class HomePage extends StatefulWidget {
@@ -175,7 +177,7 @@ class _HomePageState extends State<HomePage> {
                                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 children: [
 
-                                  new Image.asset('Images/img_4.png',
+                                  new Image.asset('Images/Products.jpg',
                                     height: 120,
                                     width: 200,
                                     alignment: Alignment.topCenter,
@@ -212,7 +214,7 @@ class _HomePageState extends State<HomePage> {
                               child: Column(
                                 children: [
 
-                                  new Image.asset('Images/img_5.png',
+                                  new Image.asset('Images/machines.jpg',
                                     height: 120,
                                     width: 200,
                                     alignment: Alignment.center,
@@ -248,7 +250,7 @@ class _HomePageState extends State<HomePage> {
 
                                 children: [
 
-                                  new Image.asset('Images/img_6.png',
+                                  new Image.asset('Images/Schemes.jpg',
                                     height: 120,
                                     width: 200,
                                     alignment: Alignment.center,
@@ -283,7 +285,7 @@ class _HomePageState extends State<HomePage> {
                               child: Column(
                                 children: [
 
-                                  new Image.asset('Images/img_7.png',
+                                  Image.asset('Images/marketprice.jpg',
                                     height: 120,
                                     width: 200,
                                     alignment: Alignment.center,
@@ -318,7 +320,7 @@ class _HomePageState extends State<HomePage> {
                               child: Column(
                                 children: [
 
-                                  new Image.asset('Images/meth_tech.png',
+                                  new Image.asset('Images/method and Technique.jpg',
                                     height: 120,
                                     width: 200,
                                     alignment: Alignment.center,
@@ -348,7 +350,7 @@ class _HomePageState extends State<HomePage> {
                             color: Colors.transparent,
                             child: InkWell(
                               onTap: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>Chats()));
+                                //Navigator.push(context, MaterialPageRoute(builder: (context)=>Chat_Home()));
                               },
                               child: Column(
                                 children: [
@@ -388,7 +390,7 @@ class _HomePageState extends State<HomePage> {
                               child: Column(
                                 children: [
 
-                                  new Image.asset('Images/img_13.png',
+                                  Image.asset('Images/Payment.jpg',
                                     height: 120,
                                     width: 200,
                                     alignment: Alignment.center,
@@ -418,7 +420,7 @@ class _HomePageState extends State<HomePage> {
                             color: Colors.transparent,
                             child: InkWell(
                               onTap: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>Complaint()));
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>Complaint_Details()));
                               },
                               child: Column(
                                 children: [

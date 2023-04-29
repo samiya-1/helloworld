@@ -12,12 +12,12 @@ class Machine extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return
-      SingleChildScrollView(
-        child: Scaffold(
-          appBar: AppBar(
-          backgroundColor: Colors.green,
-        ),
-        body: Column(
+      Scaffold(
+        appBar: AppBar(
+        backgroundColor: Colors.green,
+      ),
+      body: SingleChildScrollView(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text("Machine Details",style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold),),
@@ -82,7 +82,7 @@ class Machine extends StatelessWidget {
               ),
             ),
           ] ),
-    ),
-      );
+      ),
+    );
   }
 }

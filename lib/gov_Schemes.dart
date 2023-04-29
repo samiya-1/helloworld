@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'Edit_Profile.dart';
 import 'Home.dart';
+import 'Scheme_Details.dart';
 
 class Gov_scheme extends StatefulWidget {
   const Gov_scheme({Key? key}) : super(key: key);
@@ -26,7 +27,24 @@ class _ClassNotifyState extends State<Gov_scheme> {
           padding: EdgeInsets.all(5),
           child: ListView.separated(
             itemBuilder: (context,index){
-              return ListTile(
+    return ListTile(
+    title: Text('First Screen'),
+    subtitle: Text(" Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content."),
+    //: Text('Expire Date'),
+    trailing: Icon(Icons.keyboard_arrow_right_sharp),
+//onTap calls When ListTile Taps
+    onTap: () {
+//Navigator pushes FirstScreen.
+    Navigator.push(
+    context,
+    MaterialPageRoute(
+    builder: (context) => Scheme_Details(),
+    ),
+    );
+    separatorBuilder: (context, index) {
+    return Divider(height: 30, thickness: 1,);
+    };});
+    /*ListTile(
                 leading: CircleAvatar(
                     backgroundColor: Colors.green,
                     child: Icon(Icons.label_important, size: 25,color: Colors.white,)
@@ -42,9 +60,12 @@ class _ClassNotifyState extends State<Gov_scheme> {
             itemCount: 13,
 
           ),
+        )*/
+
+
+    }
+    )
         )
-
-
     );
   }
 }

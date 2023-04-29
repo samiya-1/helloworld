@@ -1,8 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:helloworld/payment_Message.dart';
 
-class Payment extends StatelessWidget {
+class Payment extends StatefulWidget {
   const Payment({Key? key}) : super(key: key);
+
+  @override
+  State<Payment> createState() => _PaymentState();
+}
+
+class _PaymentState extends State<Payment>
+{
+  String _selectedGender = 'Credit Card';
 
   @override
   Widget build(BuildContext context) {
@@ -12,30 +21,41 @@ class Payment extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.green,
         ),
-        body:
-        Column(
-            children: [
-              RadioListTile(
-                title: Text("Credit card"),
-                value: "Credit card",
-                groupValue: "Credit card",
-                onChanged: (value){
-                  /*setState(() {
+        body: Padding(
+            padding: const EdgeInsets.all(25),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text('Please let us know your Payment Method:'),
+                ListTile(
+                  leading: Radio<String>(
+                    value: 'Credit Card',
+                    groupValue: _selectedGender,
+                    onChanged: (value) {
+                      setState(() {
+                        _selectedGender = value!;
+                      });
+                    },
+                  ),
+                  title: const Text('Credit Card'),
+                ),
+                ListTile(
+                  leading: Radio<String>(
+                    value: 'Debit Card',
+                    groupValue: _selectedGender,
+                    onChanged: (value) {
+                      setState(() {
+                        _selectedGender = value!;
+                      });
+                    },
+                  ),
+                  title: const Text('Debit Card'),
+                ),
+                const SizedBox(height: 25),
+                Text(_selectedGender == 'Credit Card' ? 'you selected Credit Card ' : 'you selected Debit Card')
+        ,
 
-                  });*/
-                },
-              ),
-              RadioListTile(
-                title: Text("Debit card"),
-                value: "Debit card",
-                groupValue: "Debit card",
-                onChanged: (value){
-                  /*setState(() {
-
-                  });*/
-                },
-              ),
-              Padding(
+        Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
                     decoration: InputDecoration(
@@ -89,15 +109,17 @@ class Payment extends StatelessWidget {
             ),
           ),
         SizedBox(height: 10,),
-        ElevatedButton(onPressed: (){/*Navigator.push(context, MaterialPageRoute(builder: (context)=>Homepage()));*/},
+        ElevatedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Pay_Message()));},
           style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(29.0)),primary: Colors.green,fixedSize: Size(350, 57)),
           child: Text("Pay Now",style: TextStyle(
               fontSize: 18,color: Colors.white
           )),),
-            ],
-          ),
+        ])
+        )
+    ),
 
-        ),
+
+
       );
 
   }

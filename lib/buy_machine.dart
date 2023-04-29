@@ -12,7 +12,7 @@ class Buy_Machine extends StatefulWidget {
 class _Buy_MachineState extends State<Buy_Machine> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return SafeArea(child: Scaffold(
         body: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -60,7 +60,7 @@ class _Buy_MachineState extends State<Buy_Machine> {
                 )),),
             ]
         )
-
+    )
     );
   }
 }

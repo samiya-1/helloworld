@@ -26,7 +26,7 @@ class _RatingState extends State<Rating> {
            Container(
               height: size.height*.35,
               child:
-              Image.asset('Images/img_17.png',
+              Image.asset('Images/img_16.png',
                 fit: BoxFit.fill
                 ,
               )

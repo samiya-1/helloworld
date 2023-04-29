@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:helloworld/payment.dart';
 
 class Buy_Product extends StatefulWidget {
   const Buy_Product({Key? key}) : super(key: key);
@@ -11,7 +12,7 @@ class Buy_Product extends StatefulWidget {
 class _Buy_ProductState extends State<Buy_Product> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return SafeArea(child: Scaffold(
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -23,7 +24,7 @@ class _Buy_ProductState extends State<Buy_Product> {
             ),*/
         // SizedBox(height: 35,),
         new Image.asset(
-          "Images/img_4.png",
+          "Images/product.jpg",
           width: 540.0,
           height: 350.0,
           fit: BoxFit.fill,
@@ -52,7 +53,7 @@ class _Buy_ProductState extends State<Buy_Product> {
 
 
         SizedBox(height: 20,),
-            ElevatedButton(onPressed: (){/*Navigator.push(context, MaterialPageRoute(builder: (context)=>Payment()));*/},
+            ElevatedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Payment()));},
               style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(29.0)),primary: Colors.green,fixedSize: Size(350, 57)),
               child: Text("Pay Now",style: TextStyle(
                   fontSize: 18,color: Colors.white
@@ -60,6 +61,6 @@ class _Buy_ProductState extends State<Buy_Product> {
      ]
       )
 
-      );
+      ));
   }
 }

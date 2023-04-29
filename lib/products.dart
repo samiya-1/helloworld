@@ -62,7 +62,7 @@ class _ProductsState extends State<Products> {
                                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                                               children: [
 
-                                                new Image.asset('Images/img_4.png',
+                                                new Image.asset('Images/product.jpg',
                                                   height: 120,
                                                   width: 200,
                                                   alignment: Alignment.topCenter,
@@ -99,7 +99,7 @@ class _ProductsState extends State<Products> {
                                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                                               children: [
 
-                                                new Image.asset('Images/img_4.png',
+                                                new Image.asset('Images/product.jpg',
                                                   height: 120,
                                                   width: 200,
                                                   alignment: Alignment.topCenter,
@@ -135,7 +135,7 @@ class _ProductsState extends State<Products> {
                                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                                               children: [
 
-                                                new Image.asset('Images/img_4.png',
+                                                new Image.asset('Images/product.jpg',
                                                   height: 120,
                                                   width: 200,
                                                   alignment: Alignment.topCenter,
@@ -171,7 +171,7 @@ class _ProductsState extends State<Products> {
                                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                                               children: [
 
-                                                new Image.asset('Images/img_4.png',
+                                                new Image.asset('Images/product.jpg',
                                                   height: 120,
                                                   width: 200,
                                                   alignment: Alignment.topCenter,
@@ -207,7 +207,7 @@ class _ProductsState extends State<Products> {
                                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                                               children: [
 
-                                                new Image.asset('Images/img_4.png',
+                                                new Image.asset('Images/product.jpg',
                                                   height: 120,
                                                   width: 200,
                                                   alignment: Alignment.topCenter,
@@ -243,7 +243,7 @@ class _ProductsState extends State<Products> {
                                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                                               children: [
 
-                                                new Image.asset('Images/img_4.png',
+                                                new Image.asset('Images/product.jpg',
                                                   height: 120,
                                                   width: 200,
                                                   alignment: Alignment.topCenter,

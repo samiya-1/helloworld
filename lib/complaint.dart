@@ -25,7 +25,7 @@ class _ComplaintState extends State<Complaint> {
             Container(
               height: size.height*.35,
               child:
-              Image.asset('Images/img_14.jpg',
+              Image.asset('Images/img_14.png',
                 fit: BoxFit.cover,
               ),
             ),

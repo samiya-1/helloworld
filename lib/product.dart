@@ -9,14 +9,13 @@ class Product extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return 
-      SingleChildScrollView(
-        child:
-        Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.green,
-          title: Text('Product'),
-        ),
-        body: Column(
+      Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.green,
+        title: Text('Product'),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text("Product Details",style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold),),
@@ -27,7 +26,7 @@ class Product extends StatelessWidget {
             ),*/
            // SizedBox(height: 35,),
             new Image.asset(
-          "Images/img_4.png",
+          "Images/product.jpg",
           width: 540.0,
           height: 350.0,
           fit: BoxFit.fill,
@@ -80,7 +79,7 @@ class Product extends StatelessWidget {
                   fontSize: 18,color: Colors.white
               ),),),
           ],),
-    ),
-      );
+      ),
+    );
   }
 }

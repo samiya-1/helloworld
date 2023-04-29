@@ -11,7 +11,7 @@ class Sell_Product extends StatefulWidget {
 class _Sell_ProductState extends State<Sell_Product> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return SafeArea(child: Scaffold(
         body: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -23,7 +23,7 @@ class _Sell_ProductState extends State<Sell_Product> {
             ),*/
               // SizedBox(height: 35,),
               new Image.asset(
-                "Images/img_4.png",
+                "Images/product.jpg",
                 width: 540.0,
                 height: 350.0,
                 fit: BoxFit.fill,
@@ -59,7 +59,7 @@ class _Sell_ProductState extends State<Sell_Product> {
                 )),),
             ]
         )
-
+    )
     );
   }
 }

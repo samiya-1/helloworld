@@ -11,7 +11,8 @@ class Rent_Machine extends StatefulWidget {
 class _Rent_MachineState extends State<Rent_Machine> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return
+      SafeArea(child: Scaffold(
         body: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -59,7 +60,7 @@ class _Rent_MachineState extends State<Rent_Machine> {
                 )),),
             ]
         )
-
+      )
     );
   }
 }
