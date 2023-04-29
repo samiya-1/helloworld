@@ -16,6 +16,9 @@ class _RegState extends State<Reg> {
   Widget build(BuildContext context) {
     return
       SafeArea(child: Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.green,
+          ),
       body:
       Column(
           children: [

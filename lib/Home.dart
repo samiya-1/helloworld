@@ -9,6 +9,7 @@ import 'package:helloworld/Profile.dart';
 import 'package:helloworld/payment.dart';
 import 'package:helloworld/payment_details.dart';
 import 'package:helloworld/product.dart';
+import 'package:helloworld/products.dart';
 
 import 'complaint.dart';
 import 'method_technique.dart';
@@ -123,7 +124,7 @@ class _HomePageState extends State<HomePage> {
 
 
 
-                  Text("Hi\nWelcome Back!",style: TextStyle(fontWeight: FontWeight.w700,fontSize: 28),),
+                  Text("Hi\nWelcome Back!",style: TextStyle(fontWeight: FontWeight.w700,fontSize: 22),),
 
                   Container(
                     margin: EdgeInsets.symmetric(vertical: 30),
@@ -168,7 +169,7 @@ class _HomePageState extends State<HomePage> {
                             color: Colors.transparent,
                             child: InkWell(
                               onTap: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>Product()));
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>Products()));
                               },
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -452,12 +453,12 @@ class _HomePageState extends State<HomePage> {
                             color: Colors.transparent,
                             child: InkWell(
                               onTap: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>EmojiFeedback()));
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>Rating()));
                               },
                               child: Column(
                                 children: [
 
-                                  new Image.asset('Images/Feedback.jpg',
+                                  new Image.asset('Images/img_15.png',
                                     height: 120,
                                     width: 200,
                                     alignment: Alignment.center,

@@ -1,0 +1,88 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:helloworld/rent_machine.dart';
+import 'package:helloworld/sell_product.dart';
+import 'package:helloworld/buy_product.dart';
+
+import 'buy_machine.dart';
+
+class Machine extends StatelessWidget {
+  const Machine({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return
+      SingleChildScrollView(
+        child: Scaffold(
+          appBar: AppBar(
+          backgroundColor: Colors.green,
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text("Machine Details",style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold),),
+            SizedBox(height: 25,),
+            /*Align(
+              alignment: Alignment.center,
+              child: Text("",style: TextStyle(fontSize: 16),textAlign: TextAlign.center,),
+            ),*/
+            SizedBox(height: 35,),
+            Image.asset(
+          "Images/img_5.png",
+          width: 540.0,
+          height: 350.0,
+          fit: BoxFit.fill,
+        ),
+
+
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text("Machine Name"),
+          // hintText: "Enter Product Name",
+          /*border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20)*/
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text("Quantity"),
+          // hintText: "Enter Product Name",
+          /*border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20)*/
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text("Price"),
+          // hintText: "Enter Product Name",
+          /*border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20)*/
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text("Usage Date"),
+          // hintText: "Enter Product Name",
+          /*border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20)*/
+        ),
+            ElevatedButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>Buy_Machine()));
+            },
+              style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(29.0)),primary: Colors.green,fixedSize: Size(350, 57)),
+              child: Text("Buy Machine",style: TextStyle(
+                  fontSize: 18,color: Colors.white
+              ),),),
+            SizedBox(height: 35,),
+            ElevatedButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>Rent_Machine()));
+            },
+              style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(29.0)),primary: Colors.green
+                  ,fixedSize: Size(350, 57)),
+              child: Text("Sell",style: TextStyle(
+                  fontSize: 18,color: Colors.white
+              ),
+              ),
+            ),
+          ] ),
+    ),
+      );
+  }
+}

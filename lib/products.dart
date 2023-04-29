@@ -3,22 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:helloworld/payment.dart';
 import 'package:helloworld/product.dart';
 
-import 'Machine.dart';
-
-class Machines extends StatefulWidget {
-  const Machines({Key? key}) : super(key: key);
+class Products extends StatefulWidget {
+  const Products({Key? key}) : super(key: key);
 
   @override
-  State<Machines> createState() => _MachinesState();
+  State<Products> createState() => _ProductsState();
 }
 
-class _MachinesState extends State<Machines> {
+class _ProductsState extends State<Products> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.green,
-          title: Text('Machines',),
+          title: Text('Product',),
         ),
         body: Stack(
             children: [
@@ -31,7 +29,7 @@ class _MachinesState extends State<Machines> {
                   child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 17),
                       child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Expanded(
                                 child: GridView.count(
@@ -58,19 +56,19 @@ class _MachinesState extends State<Machines> {
                                           color: Colors.transparent,
                                           child: InkWell(
                                             onTap: () {
-                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Machine()));
+                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Product()));
                                             },
                                             child: Column(
                                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                                               children: [
 
-                                                new Image.asset('Images/img_5.png',
+                                                new Image.asset('Images/img_4.png',
                                                   height: 120,
                                                   width: 200,
                                                   alignment: Alignment.topCenter,
                                                 ),
                                                 Spacer(),
-                                                Text('Machine1',textAlign: TextAlign.center,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
+                                                Text('Product1',textAlign: TextAlign.center,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
 
                                               ],
                                             ),
@@ -95,19 +93,19 @@ class _MachinesState extends State<Machines> {
                                           color: Colors.transparent,
                                           child: InkWell(
                                             onTap: () {
-                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Machine()));
+                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Product()));
                                             },
                                             child: Column(
                                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                                               children: [
 
-                                                new Image.asset('Images/img_5.png',
+                                                new Image.asset('Images/img_4.png',
                                                   height: 120,
                                                   width: 200,
                                                   alignment: Alignment.topCenter,
                                                 ),
                                                 Spacer(),
-                                                Text('Machine2',textAlign: TextAlign.center,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
+                                                Text('Product2',textAlign: TextAlign.center,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
 
                                               ],
                                             ),
@@ -131,19 +129,19 @@ class _MachinesState extends State<Machines> {
                                           color: Colors.transparent,
                                           child: InkWell(
                                             onTap: () {
-                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Machine()));
+                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Product()));
                                             },
                                             child: Column(
                                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                                               children: [
 
-                                                new Image.asset('Images/img_5.png',
+                                                new Image.asset('Images/img_4.png',
                                                   height: 120,
                                                   width: 200,
                                                   alignment: Alignment.topCenter,
                                                 ),
                                                 Spacer(),
-                                                Text('Machine3',textAlign: TextAlign.center,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
+                                                Text('Product3',textAlign: TextAlign.center,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
 
                                               ],
                                             ),
@@ -167,19 +165,19 @@ class _MachinesState extends State<Machines> {
                                           color: Colors.transparent,
                                           child: InkWell(
                                             onTap: () {
-                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Machine()));
+                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Product()));
                                             },
                                             child: Column(
                                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                                               children: [
 
-                                                new Image.asset('Images/img_5.png',
+                                                new Image.asset('Images/img_4.png',
                                                   height: 120,
                                                   width: 200,
                                                   alignment: Alignment.topCenter,
                                                 ),
                                                 Spacer(),
-                                                Text('Machine4',textAlign: TextAlign.center,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
+                                                Text('Product4',textAlign: TextAlign.center,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
 
                                               ],
                                             ),
@@ -203,19 +201,19 @@ class _MachinesState extends State<Machines> {
                                           color: Colors.transparent,
                                           child: InkWell(
                                             onTap: () {
-                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Machine()));
+                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Product()));
                                             },
                                             child: Column(
                                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                                               children: [
 
-                                                new Image.asset('Images/img_5.png',
+                                                new Image.asset('Images/img_4.png',
                                                   height: 120,
                                                   width: 200,
                                                   alignment: Alignment.topCenter,
                                                 ),
                                                 Spacer(),
-                                                Text('Machine5',textAlign: TextAlign.center,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
+                                                Text('Product5',textAlign: TextAlign.center,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
 
                                               ],
                                             ),
@@ -239,19 +237,19 @@ class _MachinesState extends State<Machines> {
                                           color: Colors.transparent,
                                           child: InkWell(
                                             onTap: () {
-                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Machine()));
+                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Product()));
                                             },
                                             child: Column(
                                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                                               children: [
 
-                                                new Image.asset('Images/img_5.png',
+                                                new Image.asset('Images/img_4.png',
                                                   height: 120,
                                                   width: 200,
                                                   alignment: Alignment.topCenter,
                                                 ),
                                                 Spacer(),
-                                                Text('Machine6',textAlign: TextAlign.center,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
+                                                Text('Product6',textAlign: TextAlign.center,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
 
                                               ],
                                             ),

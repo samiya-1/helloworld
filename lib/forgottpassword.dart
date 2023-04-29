@@ -14,6 +14,9 @@ class _FpasswordState extends State<Fpassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.green,
+      ),
         body: Container(
         decoration: BoxDecoration(
         image: DecorationImage(image: AssetImage("Images/img_1.png"),

@@ -9,10 +9,32 @@ class Payment extends StatelessWidget {
     return
       SafeArea(
       child: Scaffold(
-        
+        appBar: AppBar(
+          backgroundColor: Colors.green,
+        ),
         body:
-          Column(
+        Column(
             children: [
+              RadioListTile(
+                title: Text("Credit card"),
+                value: "Credit card",
+                groupValue: "Credit card",
+                onChanged: (value){
+                  /*setState(() {
+
+                  });*/
+                },
+              ),
+              RadioListTile(
+                title: Text("Debit card"),
+                value: "Debit card",
+                groupValue: "Debit card",
+                onChanged: (value){
+                  /*setState(() {
+
+                  });*/
+                },
+              ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
@@ -74,6 +96,7 @@ class Payment extends StatelessWidget {
           )),),
             ],
           ),
+
         ),
       );
 

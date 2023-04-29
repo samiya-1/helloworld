@@ -25,13 +25,6 @@ class _ClassNotifyState extends State<ClassNotify> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     /* appBar:
-        AppBar(
-          backgroundColor: Colors.green,
-          title: Text(''),
-        ),*/
-
-
         bottomNavigationBar: Container(
           padding: EdgeInsets.symmetric(horizontal: 50,vertical: 10),
           height: 80,
@@ -107,7 +100,6 @@ class _ClassNotifyState extends State<ClassNotify> {
             ],
           ),
         ),
-
         appBar: AppBar(
           backgroundColor: Colors.green,
           title: Text('Notifications',),

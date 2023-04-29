@@ -21,6 +21,9 @@ class _ChatsState extends State<Chats> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.green,
+        ),
         body: Stack(
         children: <Widget>[
         ListView.builder(

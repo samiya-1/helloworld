@@ -16,9 +16,6 @@ class _ClassNotifyState extends State<Gov_scheme> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-
-
         appBar: AppBar(
           backgroundColor: Colors.green,
           title: Text('Goverment schemes',),

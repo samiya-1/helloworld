@@ -16,13 +16,9 @@ class _ClassNotifyState extends State<Pay_Details> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-
-
         appBar: AppBar(
           backgroundColor: Colors.green,
           title: Text('Payment Details',),
-
         ),
 
         body: Padding(

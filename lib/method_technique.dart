@@ -16,9 +16,6 @@ class _ClassNotifyState extends State<Method_Technique> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-
-
         appBar: AppBar(
           backgroundColor: Colors.green,
           title: Text('Method_Technique',),
