@@ -23,7 +23,7 @@ class _Sell_ProductState extends State<Sell_Product> {
             ),*/
               // SizedBox(height: 35,),
               new Image.asset(
-                "Images/product.jpg",
+                "Images/products.jpg",
                 width: 540.0,
                 height: 350.0,
                 fit: BoxFit.fill,

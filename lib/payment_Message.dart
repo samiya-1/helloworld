@@ -20,7 +20,7 @@ class _Pay_MessageState extends State<Pay_Message> {
     child: Column(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
-    Image.asset("Images/Tick.jpg",
+    Image.asset("Images/tick.png",
       height: 50,
       width: 100,
       alignment: Alignment.topCenter,),

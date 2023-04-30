@@ -28,8 +28,8 @@ class _Scheme_DetailsState extends State<Scheme_Details> {
               child: Text("",style: TextStyle(fontSize: 16),textAlign: TextAlign.left,),
             ),*/
             // SizedBox(height: 35,),
-            new Image.asset(
-              "Images/product.jpg",
+            Image.asset(
+              "Images/Schemes.jpg",
               width: 540.0,
               height: 350.0,
               fit: BoxFit.fill,

@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+
+import 'feedback Message.dart';
 class Rating extends StatefulWidget {
   const Rating({Key? key}) : super(key: key);
 
@@ -21,17 +23,20 @@ class _RatingState extends State<Rating> {
       ),
 
       body: SingleChildScrollView(
+
         child: Column(
           children: [
-           Container(
+            const SizedBox(height: 35,),
+            Container(
               height: size.height*.35,
               child:
-              Image.asset('Images/img_16.png',
+              Image.asset('Images/feedback.jpg',
                 fit: BoxFit.fill
                 ,
               )
             ),
-          Text('Rating'),
+            const SizedBox(height: 35,),
+            Text('Rating'),
           RatingBar.builder(
             initialRating: 3,
             minRating: 1,
@@ -74,7 +79,7 @@ class _RatingState extends State<Rating> {
                       child: Container(
                         child: ElevatedButton(
                           onPressed: (){
-
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const Feed_Message()));
                           },
                           child: Text('Submit',style: TextStyle(fontSize: 19),),
                           style: ElevatedButton.styleFrom(fixedSize: Size(100, 55),shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(29.0)),primary: Colors.green),

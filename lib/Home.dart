@@ -11,7 +11,8 @@ import 'package:helloworld/payment_details.dart';
 import 'package:helloworld/product.dart';
 import 'package:helloworld/products.dart';
 
-import 'Chat_Home.dart';
+import 'My_orders.dart';
+import 'homepage.dart';
 import 'Complaint_details.dart';
 import 'complaint.dart';
 import 'method_technique.dart';
@@ -30,7 +31,7 @@ class _HomePageState extends State<HomePage> {
     const HomePage(),
     const ClassNotify(),
     const Profile(),
-
+    const My_Orders(),
   ];
 
   Widget currentScreen = const HomePage();
@@ -39,9 +40,6 @@ class _HomePageState extends State<HomePage> {
     var size=MediaQuery.of(context).size;
 
     return Scaffold(
-
-
-
 
       bottomNavigationBar: Container(
         padding: const EdgeInsets.symmetric(horizontal: 50,vertical: 10),
@@ -89,12 +87,31 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  currentScreen = My_Orders();
+                  currentTab = 0;
+                });
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>My_Orders()));
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+
+                  Icon(Icons.shopping_cart_outlined,size: 30,color: currentTab==0 ? Colors.green : Colors.black,),
+
+                  Text('My Orders',style: TextStyle(fontWeight:FontWeight.bold,color: currentTab==2 ? Colors.green : Colors.black),)
+
+                ],
+              ),
+            ),
 
             GestureDetector(
               onTap: () {
                 setState(() {
                   currentScreen=Profile();
-                  currentTab = 2;
+                  currentTab = 3;
                 });
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>Profile()));
               },
@@ -102,8 +119,8 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
 
-                  Icon(Icons.person_outline_outlined,size: 30,color: currentTab==2 ? Colors.green : Colors.black),
-                  Text('Profile',style: TextStyle(fontWeight: FontWeight.bold,color: currentTab==2 ? Colors.green : Colors.black),)
+                  Icon(Icons.person_outline_outlined,size: 30,color: currentTab==3 ? Colors.green : Colors.black),
+                  Text('Profile',style: TextStyle(fontWeight: FontWeight.bold,color: currentTab==3 ? Colors.green : Colors.black),)
                 ],
               ),
             ),
@@ -350,7 +367,7 @@ class _HomePageState extends State<HomePage> {
                             color: Colors.transparent,
                             child: InkWell(
                               onTap: () {
-                                //Navigator.push(context, MaterialPageRoute(builder: (context)=>Chat_Home()));
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>Homepage()));
                               },
                               child: Column(
                                 children: [

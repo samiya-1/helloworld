@@ -12,6 +12,7 @@ class Reg extends StatefulWidget {
 }
 
 class _RegState extends State<Reg> {
+  String? gender;
   @override
   Widget build(BuildContext context) {
     return
@@ -54,9 +55,9 @@ class _RegState extends State<Reg> {
               padding: const EdgeInsets.all(8.0),
               child: TextField(
                   decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.numbers),
-                      label: Text("Age"),
-                      hintText: "Enter your Age",
+                      prefixIcon: Icon(Icons.password),
+                      label: Text("Confirm Password"),
+                      hintText: "Enter your Password once more",
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20)
                       ))
@@ -67,8 +68,54 @@ class _RegState extends State<Reg> {
               padding: const EdgeInsets.all(8.0),
               child: TextField(
                   decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.email),
-                      label: Text("Email"),
+                    prefixIcon: Icon(Icons.numbers),
+                      label: Text("Age"),
+                      hintText: "Enter your Age",
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20)
+                      ))
+
+              ),
+            ),
+            RadioListTile(
+              title: Text("Male"),
+              value: "male",
+              groupValue: gender,
+              onChanged: (value){
+                setState(() {
+                  gender = value.toString();
+                });
+              },
+            ),
+
+            RadioListTile(
+              title: Text("Female"),
+              value: "female",
+              groupValue: gender,
+              onChanged: (value){
+                setState(() {
+                  gender = value.toString();
+                });
+              },
+            ),
+
+            RadioListTile(
+              title: Text("Other"),
+              value: "other",
+              groupValue: gender,
+              onChanged: (value){
+                setState(() {
+                  gender = value.toString();
+                });
+              },
+            ),
+
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                  decoration: InputDecoration(
+                      prefixIcon: const Icon(Icons.email),
+                      label: const Text("Email"),
                       hintText: "Enter your Email",
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20)
@@ -80,8 +127,8 @@ class _RegState extends State<Reg> {
               padding: const EdgeInsets.all(8.0),
               child: TextField(
                   decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.phone),
-                      label: Text("Phone Number"),
+                      prefixIcon: const Icon(Icons.phone),
+                      label: const Text("Phone Number"),
                       hintText: "Enter your Phone Number",
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20)
@@ -89,26 +136,28 @@ class _RegState extends State<Reg> {
 
               ),
             ),
-            SizedBox(height: 20,),
-            ElevatedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));},
+            const SizedBox(height: 20,),
+            ElevatedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>const HomePage()));},
               style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(29.0)),primary: Colors.green,fixedSize: Size(350, 57)),
-              child: Text("Login",style: TextStyle(
+              child: const Text("Signup",style: TextStyle(
                   fontSize: 18,color: Colors.white
               )),),
 
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Already have an acoount?",style: TextStyle(fontSize: 20),),TextButton(onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Login()));
-                }, child: Text("Login",style: TextStyle(fontSize: 20,color: Colors.green,fontWeight: FontWeight.bold),))
+                const Text("Already have an account?",style: TextStyle(fontSize: 20),),TextButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const Login()));
+                }, child: const Text("Login",style: TextStyle(fontSize: 20,color: Colors.green,fontWeight: FontWeight.bold),))
 
               ],
 
             ),
-    ])
-    ),
+
+          ],
+      ),
+      ),
       );
   }
 }

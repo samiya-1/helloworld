@@ -19,7 +19,7 @@ class _Scheme_MessageState extends State<Scheme_Message> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset("Images/Tick.jpg",
+              Image.asset("Images/tick.png",
                 height: 50,
                 width: 100,
                 alignment: Alignment.topCenter,),
