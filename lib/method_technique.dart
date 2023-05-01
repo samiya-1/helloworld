@@ -23,8 +23,7 @@ class _ClassNotifyState extends State<Method_Technique> {
 
         ),
 
-        body: SingleChildScrollView(
-          child: Padding(
+        body: Padding(
             padding: EdgeInsets.all(5),
             child: ListView.separated(
               itemBuilder: (context,index){
@@ -50,7 +49,7 @@ class _ClassNotifyState extends State<Method_Technique> {
 
             ),
           ),
-        )
+
 
 
     );

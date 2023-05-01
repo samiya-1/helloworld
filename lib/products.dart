@@ -18,8 +18,7 @@ class _ProductsState extends State<Products> {
           backgroundColor: Colors.green,
           title: Text('Product',),
         ),
-        body: SingleChildScrollView(
-          child: Stack(
+        body: Stack(
               children: [
                 Container(
                   // height: size.height * .45,
@@ -63,7 +62,7 @@ class _ProductsState extends State<Products> {
                                                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                 children: [
 
-                                                  new Image.asset('Images/product.jpg',
+                                                  new Image.asset('Images/Product_man.jpg',
                                                     height: 120,
                                                     width: 200,
                                                     alignment: Alignment.topCenter,
@@ -100,7 +99,7 @@ class _ProductsState extends State<Products> {
                                                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                 children: [
 
-                                                  new Image.asset('Images/product.jpg',
+                                                  new Image.asset('Images/Product_man.jpg',
                                                     height: 120,
                                                     width: 200,
                                                     alignment: Alignment.topCenter,
@@ -136,7 +135,7 @@ class _ProductsState extends State<Products> {
                                                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                 children: [
 
-                                                  new Image.asset('Images/product.jpg',
+                                                  new Image.asset('Images/Product_man.jpg',
                                                     height: 120,
                                                     width: 200,
                                                     alignment: Alignment.topCenter,
@@ -172,7 +171,7 @@ class _ProductsState extends State<Products> {
                                                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                 children: [
 
-                                                  new Image.asset('Images/product.jpg',
+                                                  new Image.asset('Images/Product_man.jpg',
                                                     height: 120,
                                                     width: 200,
                                                     alignment: Alignment.topCenter,
@@ -208,7 +207,7 @@ class _ProductsState extends State<Products> {
                                                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                 children: [
 
-                                                  new Image.asset('Images/product.jpg',
+                                                  new Image.asset('Images/Product_man.jpg',
                                                     height: 120,
                                                     width: 200,
                                                     alignment: Alignment.topCenter,
@@ -244,7 +243,7 @@ class _ProductsState extends State<Products> {
                                                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                 children: [
 
-                                                  new Image.asset('Images/product.jpg',
+                                                  new Image.asset('Images/Product_man.jpg',
                                                     height: 120,
                                                     width: 200,
                                                     alignment: Alignment.topCenter,
@@ -263,6 +262,6 @@ class _ProductsState extends State<Products> {
                     )
                 )
               ] ),
-        )));
+        ));
   }
 }

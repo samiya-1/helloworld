@@ -23,8 +23,7 @@ class _ChatsState extends State<Chats> {
         backgroundColor: Colors.green,
 
       ) ,
-      body: SingleChildScrollView(
-        child: Stack(
+      body:  Stack(
         children: <Widget>[
         ListView.builder(
         itemCount: messages.length,
@@ -86,7 +85,7 @@ class _ChatsState extends State<Chats> {
                       ),
                     ),
                     SizedBox(width: 15,),
-                    Expanded(
+                    const Expanded(
                       child: TextField(
                         decoration: InputDecoration(
                             hintText: "Write message...",
@@ -109,7 +108,7 @@ class _ChatsState extends State<Chats> {
             ),
           ],
       ),
-    ),
+
 
 
     );

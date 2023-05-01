@@ -64,7 +64,7 @@ class _MachinesState extends State<Machines> {
                                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                                               children: [
 
-                                                new Image.asset('Images/img_5.png',
+                                                new Image.asset('Images/New_Machines.jpg',
                                                   height: 120,
                                                   width: 200,
                                                   alignment: Alignment.topCenter,
@@ -101,7 +101,7 @@ class _MachinesState extends State<Machines> {
                                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                                               children: [
 
-                                                new Image.asset('Images/img_5.png',
+                                                new Image.asset('Images/New_Machines.jpg',
                                                   height: 120,
                                                   width: 200,
                                                   alignment: Alignment.topCenter,
@@ -137,7 +137,7 @@ class _MachinesState extends State<Machines> {
                                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                                               children: [
 
-                                                new Image.asset('Images/img_5.png',
+                                                new Image.asset('Images/New_Machines.jpg',
                                                   height: 120,
                                                   width: 200,
                                                   alignment: Alignment.topCenter,
@@ -173,7 +173,7 @@ class _MachinesState extends State<Machines> {
                                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                                               children: [
 
-                                                new Image.asset('Images/img_5.png',
+                                                new Image.asset('Images/New_Machines.jpg',
                                                   height: 120,
                                                   width: 200,
                                                   alignment: Alignment.topCenter,
@@ -209,7 +209,7 @@ class _MachinesState extends State<Machines> {
                                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                                               children: [
 
-                                                new Image.asset('Images/img_5.png',
+                                                new Image.asset('Images/New_Machines.jpg',
                                                   height: 120,
                                                   width: 200,
                                                   alignment: Alignment.topCenter,
@@ -245,7 +245,7 @@ class _MachinesState extends State<Machines> {
                                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                                               children: [
 
-                                                new Image.asset('Images/img_5.png',
+                                                new Image.asset('Images/New_Machines.jpg',
                                                   height: 120,
                                                   width: 200,
                                                   alignment: Alignment.topCenter,

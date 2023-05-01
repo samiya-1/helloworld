@@ -129,8 +129,7 @@ class _My_OrdersState extends State<My_Orders> {
 
     ),
 
-    body: SingleChildScrollView(
-      child: Padding(
+    body: Padding(
       padding: const EdgeInsets.all(5),
       child: ListView.separated(
       itemBuilder: (context,index){
@@ -157,7 +156,7 @@ class _My_OrdersState extends State<My_Orders> {
 
       ),
       ),
-    )
+
 
 
     );

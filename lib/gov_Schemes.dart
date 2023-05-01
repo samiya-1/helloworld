@@ -22,8 +22,7 @@ class _ClassNotifyState extends State<Gov_scheme> {
           title: Text('Goverment schemes',),
 
         ),
-        body: SingleChildScrollView(
-          child: Padding(
+        body: Padding(
             padding: EdgeInsets.all(5),
             child: ListView.separated(
               itemBuilder: (context,index){
@@ -55,9 +54,6 @@ class _ClassNotifyState extends State<Gov_scheme> {
 
             ),
           ),
-        )
-
-
     );
   }
 }

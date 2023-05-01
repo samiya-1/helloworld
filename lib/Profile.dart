@@ -142,8 +142,7 @@ class _ProfileState extends State<Profile> {
 
 
 
-      body: SingleChildScrollView(
-        child: Container(
+      body:  Container(
           padding: EdgeInsets.only(left: 15, top: 20, right: 15),
           child: GestureDetector(
             onTap: () {
@@ -201,7 +200,7 @@ class _ProfileState extends State<Profile> {
                     ],
                   ),
                 ),
-                SizedBox(height: 30,),
+               /* SizedBox(height: 30,),
 
                 buildTextField("Full name", "Sameea", false),
                 buildTextField("Email", "opsameea@gmail.com", false),
@@ -211,7 +210,7 @@ class _ProfileState extends State<Profile> {
                 buildTextField("Phone Number", "9876543210", false),
                 buildTextField("Gender", "prefer not to Say", false),
 
-
+*/
                 SizedBox(height: 30,),
 
                 Row(
@@ -256,13 +255,10 @@ class _ProfileState extends State<Profile> {
               ],
             ),
           ),
-        ),
-      ),
+     /*
 
-    );
-  }
 
-  Widget buildTextField(String labelText, String placeholder, bool isPasswordTextField){
+    Widget buildTextField(String labelText, String placeholder, bool isPasswordTextField){
     return Padding(
       padding: EdgeInsets.only(bottom: 30),
       child: TextFormField(
@@ -289,6 +285,8 @@ class _ProfileState extends State<Profile> {
 
         ),
       ),
-    );
+    );   ),*/
+
+      ) );
   }
 }

@@ -21,8 +21,7 @@ class _PaymentState extends State<Payment>
         appBar: AppBar(
           backgroundColor: Colors.green,
         ),
-        body: SingleChildScrollView(
-          child: Padding(
+        body: Padding(
               padding: const EdgeInsets.all(25),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -118,10 +117,6 @@ class _PaymentState extends State<Payment>
           ])
           ),
         )
-    ),
-
-
-
       );
 
   }

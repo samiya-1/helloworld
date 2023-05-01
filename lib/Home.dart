@@ -180,7 +180,7 @@ class _HomePageState extends State<HomePage> {
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(15),
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
                                     offset: Offset(0,17),
                                     blurRadius: 17,
@@ -198,7 +198,7 @@ class _HomePageState extends State<HomePage> {
                                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 children: [
 
-                                  new Image.asset('Images/Products.jpg',
+                                   Image.asset('Images/Product_man.jpg',
                                     height: 120,
                                     width: 200,
                                     alignment: Alignment.topCenter,
@@ -235,7 +235,7 @@ class _HomePageState extends State<HomePage> {
                               child: Column(
                                 children: [
 
-                                  new Image.asset('Images/machines.jpg',
+                                  new Image.asset('Images/New_Machines.jpg',
                                     height: 120,
                                     width: 200,
                                     alignment: Alignment.center,
@@ -277,7 +277,7 @@ class _HomePageState extends State<HomePage> {
                                     alignment: Alignment.center,
                                   ),
                                   SizedBox(height: 10,),
-                                  Text('Schemes',textAlign: TextAlign.center,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
+                                  Text('Goverment Schemes',textAlign: TextAlign.center,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
 
                                 ],
                               ),
