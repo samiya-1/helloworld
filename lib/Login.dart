@@ -22,15 +22,13 @@ class _LoginState extends State<Login> {
     leading: IconButton(onPressed: (){
       Navigator.pop(context);},
       icon: Icon(Icons.arrow_back),)*/
-
-
-      body: Column(
+        body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-              Text("Login",style: TextStyle(color: Colors.green,fontSize:30,fontWeight: FontWeight.bold)),
+              const Text("Login",style: TextStyle(color: Colors.black,fontSize:30,fontWeight: FontWeight.bold)),
           SizedBox(height: 15,),
 
-          Text("Welcome Back ! Login with your username and password",style: TextStyle(color: Colors.green,fontSize:15,fontWeight: FontWeight.bold)),
+          const Text("Welcome Back! Login with your username and password",style: TextStyle(color: Colors.black,fontSize:15,fontWeight: FontWeight.bold)),
           SizedBox(height: 15,),
 
           Padding(
@@ -40,7 +38,7 @@ class _LoginState extends State<Login> {
                   prefixIcon: Icon(Icons.person),
                   label: Text("Username"),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20)
+                    borderRadius: BorderRadius.circular(20),borderSide: BorderSide(color: Colors.green)
                   ))
 
                 ),
@@ -53,9 +51,9 @@ class _LoginState extends State<Login> {
                 decoration: InputDecoration(
                     prefixIcon: Icon(Icons.lock),
                     label: Text("Password"),
-                    // hintText: "Username",
+                     //hintText: "Password",
                     border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20)
+                        borderRadius: BorderRadius.circular(20),borderSide: BorderSide(color: Colors.green)
                     ))
 
             ),
@@ -64,7 +62,7 @@ class _LoginState extends State<Login> {
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-                Text("Forgott Password?",style: TextStyle(fontSize: 20,color: Colors.green),),TextButton(onPressed: (){
+                Text("Forgott Password?",style: TextStyle(fontSize: 20,color: Colors.black),),TextButton(onPressed: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>Fpassword()));
                 }, child: Text("click",style: TextStyle(fontSize: 20,color: Colors.green,fontWeight: FontWeight.bold),))],),
 

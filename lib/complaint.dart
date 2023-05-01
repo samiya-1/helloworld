@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'Complaint_Message.dart';
+
 class Complaint extends StatefulWidget {
   const Complaint({Key? key}) : super(key: key);
 
@@ -57,6 +59,7 @@ class _ComplaintState extends State<Complaint> {
                       child: Container(
                         child: ElevatedButton(
                           onPressed: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>Comp_Message(),));
 
                           },
                           child: Text('Submit',style: TextStyle(fontSize: 19),),

@@ -4,7 +4,9 @@ import 'package:helloworld/rent_machine.dart';
 import 'package:helloworld/sell_product.dart';
 import 'package:helloworld/buy_product.dart';
 
+import 'alert_rent_machine.dart';
 import 'buy_machine.dart';
+import 'machine_sell_alert.dart';
 
 class Machine extends StatelessWidget {
   const Machine({Key? key}) : super(key: key);
@@ -72,11 +74,23 @@ class Machine extends StatelessWidget {
               ),),),
             SizedBox(height: 35,),
             ElevatedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>Rent_Machine()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>alert_sell_machine()));
             },
               style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(29.0)),primary: Colors.green
                   ,fixedSize: Size(350, 57)),
-              child: Text("Sell",style: TextStyle(
+              child: Text("sell Machine",style: TextStyle(
+                  fontSize: 18,color: Colors.white
+              ),
+              ),
+            ),
+            SizedBox(height: 35,),
+
+            ElevatedButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>alert_rent_machine()));
+            },
+              style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(29.0)),primary: Colors.green
+                  ,fixedSize: Size(350, 57)),
+              child: Text("Rent Machine",style: TextStyle(
                   fontSize: 18,color: Colors.white
               ),
               ),

@@ -1,4 +1,3 @@
-import 'package:helloworld/chats.dart';
 import 'package:helloworld/feedback.dart';
 import 'package:flutter/material.dart';
 import 'package:helloworld/gov_Schemes.dart';
@@ -6,11 +5,9 @@ import 'package:helloworld/machines.dart';
 import 'package:helloworld/market_prices.dart';
 import 'package:helloworld/notification.dart';
 import 'package:helloworld/Profile.dart';
-import 'package:helloworld/payment.dart';
 import 'package:helloworld/payment_details.dart';
-import 'package:helloworld/product.dart';
 import 'package:helloworld/products.dart';
-
+import 'package:helloworld/screens/chatPage.dart';
 import 'My_orders.dart';
 import 'homepage.dart';
 import 'Complaint_details.dart';
@@ -62,7 +59,7 @@ class _HomePageState extends State<HomePage> {
 
                   Icon(Icons.home_outlined,size: 30,color: currentTab==0 ? Colors.green : Colors.black,),
 
-                  Text('Home',style: TextStyle(fontWeight:FontWeight.bold,color: currentTab==2 ? Colors.green : Colors.black),)
+                  Text('Home',style: TextStyle(fontWeight:FontWeight.bold,color: currentTab==0 ? Colors.green : Colors.black),)
 
                 ],
               ),
@@ -91,7 +88,7 @@ class _HomePageState extends State<HomePage> {
               onTap: () {
                 setState(() {
                   currentScreen = My_Orders();
-                  currentTab = 0;
+                  currentTab = 2;
                 });
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>My_Orders()));
               },
@@ -99,7 +96,7 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
 
-                  Icon(Icons.shopping_cart_outlined,size: 30,color: currentTab==0 ? Colors.green : Colors.black,),
+                  Icon(Icons.shopping_cart_outlined,size: 30,color: currentTab==2 ? Colors.green : Colors.black,),
 
                   Text('My Orders',style: TextStyle(fontWeight:FontWeight.bold,color: currentTab==2 ? Colors.green : Colors.black),)
 
@@ -155,10 +152,17 @@ class _HomePageState extends State<HomePage> {
                     ),
                     child: TextField(
                       controller: searchController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           prefixIcon: Icon(Icons.search),
                           hintText: "Search",
-                          border: InputBorder.none
+                          border: InputBorder.none,
+                        prefixIconColor: Colors.green,
+                       /* hoverColor: Colors.green,
+                        focusColor: Colors.green,
+                        suffixIconColor: Colors.green,
+                          iconColor: Colors.green,
+                        fillColor: Colors.green*/
+
                       ),
                     ),
                   ),
@@ -343,7 +347,7 @@ class _HomePageState extends State<HomePage> {
                                     alignment: Alignment.center,
                                   ),
                                   SizedBox(height: 10,),
-                                  Text('Method Technique',textAlign: TextAlign.center,style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),)
+                                  Text('Method and Technique',textAlign: TextAlign.center,style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),)
 
                                 ],
                               ),
@@ -367,7 +371,7 @@ class _HomePageState extends State<HomePage> {
                             color: Colors.transparent,
                             child: InkWell(
                               onTap: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>Homepage()));
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatPage()));
                               },
                               child: Column(
                                 children: [
@@ -425,7 +429,7 @@ class _HomePageState extends State<HomePage> {
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(15),
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
                                     offset: Offset(0,17),
                                     blurRadius: 17,
@@ -437,18 +441,18 @@ class _HomePageState extends State<HomePage> {
                             color: Colors.transparent,
                             child: InkWell(
                               onTap: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>Complaint_Details()));
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>const Complaint_Details()));
                               },
                               child: Column(
                                 children: [
 
-                                  new Image.asset('Images/img_12.png',
+                                  Image.asset('Images/img_12.png',
                                     height: 120,
                                     width: 200,
                                     alignment: Alignment.center,
                                   ),
-                                  SizedBox(height: 10,),
-                                  Text('Complaint',textAlign: TextAlign.center,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
+                                  const SizedBox(height: 10,),
+                                  const Text('Complaint',textAlign: TextAlign.center,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
 
                                 ],
                               ),

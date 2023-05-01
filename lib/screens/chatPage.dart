@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:helloworld/widgets/conversationList.dart';
 
+import '../chats.dart';
 import '../models/chatusersmodel.dart';
-import '../widgets/conversationList.dart';
 
 class ChatPage extends StatefulWidget {
   @override
@@ -9,18 +10,31 @@ class ChatPage extends StatefulWidget {
 }
 class _ChatPageState extends State<ChatPage> {
   List<ChatUsers> chatUsers = [
-    ChatUsers(text: "Jane Russel", secondaryText: "Awesome Setup", image: "images/userImage1.jpeg", time: "Now", name: '', messageText: '', imageURL: ''),
-    ChatUsers(text: "Glady's Murphy", secondaryText: "That's Great", image: "images/userImage2.jpeg", time: "Yesterday", name: '', messageText: '', imageURL: ''),
-    ChatUsers(text: "Jorge Henry", secondaryText: "Hey where are you?", image: "images/userImage3.jpeg", time: "31 Mar", name: '', messageText: '', imageURL: ''),
-    ChatUsers(text: "Philip Fox", secondaryText: "Busy! Call me in 20 mins", image: "images/userImage4.jpeg", time: "28 Mar", name: '', messageText: '', imageURL: ''),
-    ChatUsers(text: "Debra Hawkins", secondaryText: "Thankyou, It's awesome", image: "images/userImage5.jpeg", time: "23 Mar", name: '', messageText: '', imageURL: ''),
-    ChatUsers(text: "Jacob Pena", secondaryText: "will update you in evening", image: "images/userImage6.jpeg", time: "17 Mar", name: '', messageText: '', imageURL: ''),
-    ChatUsers(text: "Andrey Jones", secondaryText: "Can you please share the file?", image: "images/userImage7.jpeg", time: "24 Feb", name: '', messageText: '', imageURL: ''),
-    ChatUsers(text: "John Wick", secondaryText: "How are you?", image: "images/userImage8.jpeg", time: "18 Feb", name: '', messageText: '', imageURL: ''),
-  ];
-//class _ChatPageState extends State<ChatPage>
-
-
+  ChatUsers(text: "Jane Russel",
+  secondaryText: "Awesome Setup",
+  image: "Images/img.png",
+  time: "Now",
+  name: 'Afeefa',
+  messageText: 'hello ', imageURL: 'Images/img.png'),
+  ChatUsers(text: "Jane Russel",
+  secondaryText: "Awesome Setup",
+  image: "Images/img_3.png",
+  time: "10.30am",
+  name: 'Aparna',
+  messageText: 'how are you', imageURL: 'Images/img_3.png'),
+    ChatUsers(text: "Jane Russel",
+        secondaryText: "Awesome Setup",
+        image: "Images/Images/img_4.png",
+        time: "Now",
+        name: 'Mushrifa',
+        messageText: 'you there? ', imageURL: 'Images/img_4.png'),
+    ChatUsers(text: "Jane Russel",
+        secondaryText: "Awesome Setup",
+        image: "Images/Images/img_6.png",
+        time: "yesterday",
+        name: 'Kavya',
+        messageText: 'call me ', imageURL: 'Images/img_6.png'),
+ ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,21 +81,6 @@ class _ChatPageState extends State<ChatPage> {
                               ),
                             ),
                           ),
-                          ListView.builder(
-                            itemCount: chatUsers.length,
-                            shrinkWrap: true,
-                            padding: EdgeInsets.only(top: 16),
-                            physics: NeverScrollableScrollPhysics(),
-                            itemBuilder: (context, index){
-                              return ConversationList(
-                                name: chatUsers[index].name,
-                                messageText: chatUsers[index].messageText,
-                                imageUrl: chatUsers[index].imageURL,
-                                time: chatUsers[index].time,
-                                isMessageRead: (index == 0 || index == 3)?true:false,
-                              );
-                            },
-                          ),
                         ],
 
                       ),
@@ -91,16 +90,31 @@ class _ChatPageState extends State<ChatPage> {
                 ),
               ),
             ),
+            ListView.builder(
+              itemCount: chatUsers.length,
+              shrinkWrap: true,
+              padding: EdgeInsets.only(top: 16),
+              physics: NeverScrollableScrollPhysics(),
+              itemBuilder: (context, index){
+                return GestureDetector(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Chats()));
+                  },
+                  child: ConversationList(
+                    name: chatUsers[index].name,
+                    messageText: chatUsers[index].messageText,
+                    imageUrl: chatUsers[index].imageURL,
+                    time: chatUsers[index].time,
+                    isMessageRead: (index == 0 || index == 3)?true:false,
+                  ),
+                );
+              },
+            ),
           ],
         ),
       ),
     );
 
   }
-}
 
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
-  }
+}

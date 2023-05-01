@@ -28,7 +28,7 @@ class _Order_DetailsState extends State<Order_Details> {
             ),*/
         // SizedBox(height: 35,),
         Image.asset(
-        "Images/Schemes.jpg",
+        "Images/Products.jpg",
         width: 540.0,
         height: 350.0,
         fit: BoxFit.fill,

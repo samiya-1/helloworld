@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'Edit_Profile.dart';
 import 'Home.dart';
+import 'My_orders.dart';
 
 class ClassNotify extends StatefulWidget {
   const ClassNotify({Key? key}) : super(key: key);
@@ -76,12 +77,31 @@ class _ClassNotifyState extends State<ClassNotify> {
                   ],
                 ),
               ),
-
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    currentScreen=My_Orders();
+                    currentTab = 2;
+                  });
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>My_Orders()));
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    // new Image.asset('icon/user.png',
+                    //   height: 35,
+                    //   width: 55,
+                    // ),
+                    Icon(Icons.shopping_cart_outlined,size: 30,color: currentTab==2 ? Colors.green : Colors.black),
+                    Text('My Orders',style: TextStyle(fontWeight: FontWeight.bold,color: currentTab==2 ? Colors.green : Colors.black),)
+                  ],
+                ),
+              ),
               GestureDetector(
                 onTap: () {
                   setState(() {
                     currentScreen=Profile();
-                    currentTab = 2;
+                    currentTab = 3;
                   });
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>Profile()));
                 },
@@ -92,8 +112,8 @@ class _ClassNotifyState extends State<ClassNotify> {
                     //   height: 35,
                     //   width: 55,
                     // ),
-                    Icon(Icons.person_outline_outlined,size: 30,color: currentTab==2 ? Colors.green : Colors.black),
-                    Text('Profile',style: TextStyle(fontWeight: FontWeight.bold,color: currentTab==2 ? Colors.green : Colors.black),)
+                    Icon(Icons.person_outline_outlined,size: 30,color: currentTab==3 ? Colors.green : Colors.black),
+                    Text('Profile',style: TextStyle(fontWeight: FontWeight.bold,color: currentTab==3 ? Colors.green : Colors.black),)
                   ],
                 ),
               ),
@@ -106,25 +126,27 @@ class _ClassNotifyState extends State<ClassNotify> {
 
         ),
 
-        body: Padding(
-          padding: EdgeInsets.all(5),
-          child: ListView.separated(
-            itemBuilder: (context,index){
-              return ListTile(
-                leading: CircleAvatar(
-                    backgroundColor: Colors.green,
-                    child: Icon(Icons.notifications, size: 25,color: Colors.white,)
-                ) ,
-                title: Text("Notification",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
-                subtitle: Text(" Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content."),
-                trailing: Text('time '),
-              );
-            },
-            separatorBuilder: (context, index) {
-              return Divider(height: 30, thickness: 1,);
-            },
-            itemCount: 13,
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.all(5),
+            child: ListView.separated(
+              itemBuilder: (context,index){
+                return ListTile(
+                  leading: CircleAvatar(
+                      backgroundColor: Colors.green,
+                      child: Icon(Icons.notifications, size: 25,color: Colors.white,)
+                  ) ,
+                  title: Text("Notification",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
+                  subtitle: Text(" Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content."),
+                  trailing: Text('time '),
+                );
+              },
+              separatorBuilder: (context, index) {
+                return Divider(height: 30, thickness: 1,);
+              },
+              itemCount: 13,
 
+            ),
           ),
         )
 

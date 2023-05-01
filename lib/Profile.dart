@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'Home.dart';
 import 'Login.dart';
+import 'My_orders.dart';
 import 'Welcome.dart';
 import 'method_technique.dart';
 import 'notification.dart';
@@ -18,11 +19,12 @@ class _ProfileState extends State<Profile> {
 
   bool isObscurePassword=true;
 
-  int currentTab = 2;
+  int currentTab = 3;
   final List<Widget> screen =[
-    HomePage(),
-    //ClassNotify(),
-    Profile(),
+    const HomePage(),
+    const ClassNotify(),
+    const My_Orders(),
+    const Profile(),
 
   ];
 
@@ -75,10 +77,10 @@ class _ProfileState extends State<Profile> {
             GestureDetector(
               onTap: () {
                 setState(() {
-                  currentScreen=ClassNotify();
+                  currentScreen=const ClassNotify();
                   currentTab = 1;
                 });
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>ClassNotify()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>const ClassNotify()));
 
               },
               child: Column(
@@ -88,8 +90,28 @@ class _ProfileState extends State<Profile> {
                   //   height: 40,
                   //   width: 60,
                   // ),
-                  Icon(Icons.notifications_outlined,size: 30,),
+                  const Icon(Icons.notifications_outlined,size: 30,),
                   Text('Notification',style: TextStyle(fontWeight: FontWeight.bold,color: currentTab==1 ? Colors.green : Colors.black),)
+                ],
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  currentScreen=My_Orders();
+                  currentTab = 2;
+                });
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>My_Orders()));
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  // new Image.asset('icon/user.png',
+                  //   height: 35,
+                  //   width: 55,
+                  // ),
+                  Icon(Icons.person_outline_outlined,size: 30,color: currentTab==2 ? Colors.green : Colors.black),
+                  Text('My Orders',style: TextStyle(fontWeight: FontWeight.bold,color: currentTab==2 ? Colors.green : Colors.black),)
                 ],
               ),
             ),
@@ -98,7 +120,7 @@ class _ProfileState extends State<Profile> {
               onTap: () {
                 setState(() {
                   currentScreen=Profile();
-                  currentTab = 2;
+                  currentTab = 3;
                 });
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>Profile()));
               },
@@ -109,8 +131,8 @@ class _ProfileState extends State<Profile> {
                   //   height: 35,
                   //   width: 55,
                   // ),
-                  Icon(Icons.person_outline_outlined,size: 30,color: currentTab==2 ? Colors.green : Colors.black),
-                  Text('Profile',style: TextStyle(fontWeight: FontWeight.bold,color: currentTab==2 ? Colors.green : Colors.black),)
+                  Icon(Icons.person_outline_outlined,size: 30,color: currentTab==3 ? Colors.green : Colors.black),
+                  Text('Profile',style: TextStyle(fontWeight: FontWeight.bold,color: currentTab==3 ? Colors.green : Colors.black),)
                 ],
               ),
             ),
@@ -185,6 +207,10 @@ class _ProfileState extends State<Profile> {
                 buildTextField("Email", "opsameea@gmail.com", false),
                 buildTextField("Password", "12345678", true),
                 buildTextField("Place", "Kondotty", false),
+                buildTextField("Age", "22", false),
+                buildTextField("Phone Number", "9876543210", false),
+                buildTextField("Gender", "prefer not to Say", false),
+
 
                 SizedBox(height: 30,),
 
@@ -210,7 +236,7 @@ class _ProfileState extends State<Profile> {
                       onPressed: (){},
                       child: Text("SUBMIT",style: TextStyle(fontSize: 15, letterSpacing: 2, color: Colors.white),),
                       style: ElevatedButton.styleFrom(
-                          primary: Colors.green,
+                          backgroundColor: Colors.green,
                           padding: EdgeInsets.symmetric(horizontal: 50),
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
                       ),
@@ -220,7 +246,7 @@ class _ProfileState extends State<Profile> {
                       onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Login()));},
                       child: Text("LOG OUT",style: TextStyle(fontSize: 15, letterSpacing: 2, color: Colors.white),),
                       style: ElevatedButton.styleFrom(
-                          primary: Colors.green,
+                          backgroundColor: Colors.green,
                           padding: EdgeInsets.symmetric(horizontal: 100),
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
                       ),

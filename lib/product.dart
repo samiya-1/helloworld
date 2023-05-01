@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:helloworld/product_sell_alert.dart';
 import 'package:helloworld/sell_product.dart';
 import 'package:helloworld/buy_product.dart';
 
@@ -71,7 +72,7 @@ class Product extends StatelessWidget {
               ),),),
             SizedBox(height: 35,),
             ElevatedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>Sell_Product()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>alert_sell_product()));
             },
               style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(29.0)),primary: Colors.green
                   ,fixedSize: Size(350, 57)),

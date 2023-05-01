@@ -23,7 +23,6 @@ class _RatingState extends State<Rating> {
       ),
 
       body: SingleChildScrollView(
-
         child: Column(
           children: [
             const SizedBox(height: 35,),

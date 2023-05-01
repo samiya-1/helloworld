@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 import 'Home.dart';
+import 'My_orders.dart';
 import 'Welcome.dart';
 import 'chats.dart';
 import 'method_technique.dart';
@@ -18,15 +19,16 @@ class _ProfileState extends State<Profile> {
 
   bool isObscurePassword=true;
 
-  int currentTab = 2;
+  int currentTab = 3;
   final List<Widget> screen =[
-    HomePage(),
-    ClassNotify(),
-    Profile(),
+    const HomePage(),
+    const ClassNotify(),
+    const My_Orders(),
+    const Profile(),
 
   ];
 
-  Widget currentScreen = Profile();
+  Widget currentScreen = const Profile();
 
   TextEditingController unameController=TextEditingController();
   TextEditingController plcController=TextEditingController();
@@ -97,8 +99,30 @@ class _ProfileState extends State<Profile> {
             GestureDetector(
               onTap: () {
                 setState(() {
-                  currentScreen=Profile();
+                  currentScreen=My_Orders();
                   currentTab = 2;
+                });
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>My_Orders()));
+
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  // new Image.asset('icon/notification.png',
+                  //   height: 40,
+                  //   width: 60,
+                  // ),
+                  Icon(Icons.shopping_cart_outlined,size: 30,color: currentTab==2 ? Colors.green : Colors.black),
+                  Text('My Orders',style: TextStyle(fontWeight: FontWeight.bold,color: currentTab==2 ? Colors.green : Colors.black),)
+                ],
+              ),
+            ),
+
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  currentScreen=Profile();
+                  currentTab = 3;
                 });
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>Profile()));
               },
@@ -109,8 +133,8 @@ class _ProfileState extends State<Profile> {
                   //   height: 35,
                   //   width: 55,
                   // ),
-                  Icon(Icons.person_outline_outlined,size: 30,color: currentTab==2 ? Colors.green : Colors.black),
-                  Text('Profile',style: TextStyle(fontWeight: FontWeight.bold,color: currentTab==2 ? Colors.green : Colors.black),)
+                  Icon(Icons.person_outline_outlined,size: 30,color: currentTab==3 ? Colors.green : Colors.black),
+                  Text('Profile',style: TextStyle(fontWeight: FontWeight.bold,color: currentTab==3 ? Colors.green : Colors.black),)
                 ],
               ),
             ),
