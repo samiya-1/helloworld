@@ -19,7 +19,7 @@ class _Meth_Tech_DetailsState extends State<Meth_Tech_Details> {
             return ListTile(
                 leading: const Icon(Icons.list),
                 trailing: const Text(
-                  "GFG",
+                  "",
                   style: TextStyle(color: Colors.green, fontSize: 15),
                 ),
                 title: Text("Method and Technique name $index"));

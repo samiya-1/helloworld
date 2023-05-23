@@ -14,8 +14,7 @@ class _Buy_ProductState extends State<Buy_Product> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-        body: SingleChildScrollView(
-          child: Column(
+        body:  Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
             Text("Buy Product",style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold),),
@@ -26,7 +25,7 @@ class _Buy_ProductState extends State<Buy_Product> {
               ),*/
           // SizedBox(height: 35,),
           new Image.asset(
-            "Images/product.jpg",
+            "Images/Product_man.jpg",
             width: 540.0,
             height: 350.0,
             fit: BoxFit.fill,
@@ -64,6 +63,6 @@ class _Buy_ProductState extends State<Buy_Product> {
       ),
         )
 
-      ));
+      );
   }
 }

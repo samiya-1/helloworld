@@ -20,6 +20,7 @@ class _PaymentState extends State<Payment>
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.green,
+          title: Text('Payment'),
         ),
         body: Padding(
               padding: const EdgeInsets.all(25),

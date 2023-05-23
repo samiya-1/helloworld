@@ -15,8 +15,7 @@ class Product extends StatelessWidget {
         backgroundColor: Colors.green,
         title: Text('Product'),
       ),
-      body: SingleChildScrollView(
-        child: Column(
+      body:  Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text("Product Details",style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold),),
@@ -27,7 +26,7 @@ class Product extends StatelessWidget {
             ),*/
            // SizedBox(height: 35,),
             new Image.asset(
-          "Images/product.jpg",
+          "Images/Product_man.jpg",
           width: 540.0,
           height: 350.0,
           fit: BoxFit.fill,
@@ -80,7 +79,7 @@ class Product extends StatelessWidget {
                   fontSize: 18,color: Colors.white
               ),),),
           ],),
-      ),
+
     );
   }
 }

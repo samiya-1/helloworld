@@ -241,16 +241,17 @@ class _ProfileState extends State<Profile> {
                       ),
                     ),
                     const SizedBox(height: 20,),
-                    ElevatedButton(
-                      onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Login()));},
-                      child: Text("LOG OUT",style: TextStyle(fontSize: 15, letterSpacing: 2, color: Colors.white),),
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.green,
-                          padding: EdgeInsets.symmetric(horizontal: 100),
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
-                      ),
-                    )
+
                   ],
+                ),
+                ElevatedButton(
+                  onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Login()));},
+                  child: Text("LOG OUT",style: TextStyle(fontSize: 15, letterSpacing: 2, color: Colors.white),),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.green,
+                      padding: EdgeInsets.symmetric(horizontal: 100),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
+                  ),
                 )
               ],
             ),

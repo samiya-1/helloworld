@@ -21,8 +21,7 @@ class _ClassNotifyState extends State<Pay_Details> {
           title: Text('Payment Details',),
         ),
 
-        body: SingleChildScrollView(
-          child: Padding(
+        body:  Padding(
             padding: EdgeInsets.all(5),
             child: ListView.separated(
               itemBuilder: (context,index){
@@ -43,7 +42,7 @@ class _ClassNotifyState extends State<Pay_Details> {
 
             ),
           ),
-        )
+
 
 
     );

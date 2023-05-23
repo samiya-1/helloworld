@@ -21,9 +21,7 @@ class _FpasswordState extends State<Fpassword> {
         /*decoration: const BoxDecoration(
         image: DecorationImage(image: AssetImage("Images/img_1.png"),
     fit: BoxFit.fill)
-    ),*/
-         SingleChildScrollView(
-           child: Column(
+    ),*/ Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text("Forgot Password",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
@@ -63,7 +61,7 @@ class _FpasswordState extends State<Fpassword> {
                   child: const Text("Submit")),
         ],
     ),
-         ),
+
 
     );
   }

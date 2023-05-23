@@ -18,8 +18,7 @@ class Machine extends StatelessWidget {
         appBar: AppBar(
         backgroundColor: Colors.green,
       ),
-      body: SingleChildScrollView(
-        child: Column(
+      body:  Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text("Machine Details",style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold),),
@@ -30,7 +29,7 @@ class Machine extends StatelessWidget {
             ),*/
             SizedBox(height: 35,),
             Image.asset(
-          "Images/img_5.png",
+          "Images/New_Machines.jpg",
           width: 540.0,
           height: 350.0,
           fit: BoxFit.fill,
@@ -96,7 +95,7 @@ class Machine extends StatelessWidget {
               ),
             ),
           ] ),
-      ),
+
     );
   }
 }

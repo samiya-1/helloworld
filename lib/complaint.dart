@@ -21,8 +21,7 @@ class _ComplaintState extends State<Complaint> {
         title: Text('Complaint'),
       ),
 
-      body: SingleChildScrollView(
-        child: Column(
+      body:  Column(
           children: [
             Container(
               height: size.height*.35,
@@ -76,7 +75,7 @@ class _ComplaintState extends State<Complaint> {
             ),
           ],
         ),
-      ),
+
 
     );
   }

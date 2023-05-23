@@ -13,8 +13,7 @@ class _Buy_MachineState extends State<Buy_Machine> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
-        body: SingleChildScrollView(
-          child: Column(
+        body:  Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text("Buy Machines",style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold),),
@@ -25,7 +24,7 @@ class _Buy_MachineState extends State<Buy_Machine> {
               ),*/
                 // SizedBox(height: 35,),
                 new Image.asset(
-                  "Images/img_5.png",
+                  "Images/New_Machines.jpg",
                   width: 540.0,
                   height: 350.0,
                   fit: BoxFit.fill,
@@ -62,7 +61,7 @@ class _Buy_MachineState extends State<Buy_Machine> {
               ]
           ),
         )
-    )
+
     );
   }
 }

@@ -24,8 +24,7 @@ class _Complaint_DetailsState extends State<Complaint_Details> {
 
         ),
 
-        body: SingleChildScrollView(
-          child: Padding(
+        body:  Padding(
             padding: EdgeInsets.all(5),
             child: ListView.separated(
               itemBuilder: (context,index){
@@ -46,7 +45,7 @@ class _Complaint_DetailsState extends State<Complaint_Details> {
 
             ),
           ),
-        ),
+
 
     floatingActionButton: FloatingActionButton.extended(
     onPressed: () {

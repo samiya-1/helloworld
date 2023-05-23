@@ -16,8 +16,7 @@ class _Pay_MessageState extends State<Pay_Message> {
     return Scaffold(
 
     backgroundColor: Colors.white,
-    body: SingleChildScrollView(
-      child: Center(
+    body:  Center(
       child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -39,7 +38,7 @@ class _Pay_MessageState extends State<Pay_Message> {
       ],
       ),
       ),
-    ),
+
     );
   }
 }

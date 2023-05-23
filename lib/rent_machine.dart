@@ -25,7 +25,7 @@ class _Rent_MachineState extends State<Rent_Machine> {
               ),*/
                 // SizedBox(height: 35,),
                 new Image.asset(
-                  "Images/img_5.png",
+                  "Images/New_Machines.jpg",
                   width: 540.0,
                   height: 350.0,
                   fit: BoxFit.fill,
