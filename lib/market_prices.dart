@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'Edit_Profile.dart';
-import 'Home.dart';
-
 class MarketPrice extends StatefulWidget {
   const MarketPrice({Key? key}) : super(key: key);
 

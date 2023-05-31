@@ -1,9 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:helloworld/payment.dart';
-import 'package:helloworld/product.dart';
-
-import 'Machine.dart';
+import 'package:helloworld/Machine.dart';
 
 class Machines extends StatefulWidget {
   const Machines({Key? key}) : super(key: key);

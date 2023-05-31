@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/Machine.dart';
-import 'package:helloworld/rent_machine.dart';
-
-
+import 'package:helloworld/machine_sell.dart';
 
 class alert_sell_machine extends StatefulWidget {
   const alert_sell_machine({Key? key}) : super(key: key);

@@ -1,15 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:helloworld/Home.dart';
 import 'package:helloworld/Welcome.dart';
-import 'package:helloworld/Login.dart';
-import 'package:helloworld/Profile.dart';
-import 'package:helloworld/demo.dart';
-import 'package:helloworld/forgottpassword.dart';
-
-
-import 'Edit_Profile.dart';
-import 'MyProfile.dart';
-import 'Resetpass.dart';
 
 void main() {
   runApp(MyApp());

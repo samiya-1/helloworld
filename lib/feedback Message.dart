@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'Feedback.dart';
+import 'package:helloworld/feedback.dart';
 
 class Feed_Message extends StatefulWidget {
   const Feed_Message({Key? key}) : super(key: key);

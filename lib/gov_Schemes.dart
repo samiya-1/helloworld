@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'Edit_Profile.dart';
-import 'Home.dart';
-import 'Scheme_Details.dart';
+import 'package:helloworld/Scheme_Details.dart';
 
 class Gov_scheme extends StatefulWidget {
   const Gov_scheme({Key? key}) : super(key: key);

@@ -1,8 +1,10 @@
 import 'package:helloworld/Complaint_details.dart';
 import 'package:helloworld/My_orders.dart';
+import 'package:helloworld/chats.dart';
 import 'package:helloworld/feedback.dart';
 import 'package:flutter/material.dart';
 import 'package:helloworld/gov_Schemes.dart';
+import 'package:helloworld/homepage.dart';
 import 'package:helloworld/machines.dart';
 import 'package:helloworld/market_prices.dart';
 import 'package:helloworld/method_technique.dart';
@@ -370,7 +372,7 @@ class _HomePageState extends State<HomePage> {
                             color: Colors.transparent,
                             child: InkWell(
                               onTap: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatPage()));
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>Chats()));
                               },
                               child: Column(
                                 children: [

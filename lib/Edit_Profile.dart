@@ -1,12 +1,7 @@
-
 import 'package:flutter/material.dart';
-
-import 'Home.dart';
-import 'My_orders.dart';
-import 'Welcome.dart';
-import 'chats.dart';
-import 'method_technique.dart';
-import 'notification.dart';
+import 'package:helloworld/Home.dart';
+import 'package:helloworld/My_orders.dart';
+import 'package:helloworld/notification.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);

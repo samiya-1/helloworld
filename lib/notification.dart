@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import 'Edit_Profile.dart';
-import 'Home.dart';
-import 'My_orders.dart';
+import 'package:helloworld/Home.dart';
+import 'package:helloworld/My_orders.dart';
+import 'package:helloworld/Profile.dart';
 
 class ClassNotify extends StatefulWidget {
   const ClassNotify({Key? key}) : super(key: key);

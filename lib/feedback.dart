@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-
-import 'feedback Message.dart';
+import 'package:helloworld/feedback%20Message.dart';
 class Rating extends StatefulWidget {
   const Rating({Key? key}) : super(key: key);
 

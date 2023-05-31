@@ -1,16 +1,11 @@
-
-
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:helloworld/API.dart';
+import 'package:helloworld/Home.dart';
+import 'package:helloworld/Register.dart';
 import 'package:helloworld/forgottpassword.dart';
-import 'package:helloworld/Resetpass.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'Home.dart';
-import 'Register.dart';
-import 'Profile.dart';
 
 class Login extends StatefulWidget {
   const Login ({Key? key}) : super(key: key);
@@ -23,6 +18,13 @@ class _LoginState extends State<Login> {
   TextEditingController emailController=TextEditingController();
   TextEditingController pwdController=TextEditingController();
 
+ bool _isLoading=false;
+
+  late SharedPreferences localStorage;
+  String role="";
+  String status="";
+  String storedvalue="true";
+  String user="";
   _pressLoginButton() async {
     setState(() {
       _isLoading = true;
@@ -61,13 +63,13 @@ class _LoginState extends State<Login> {
       if (user == role &&
           storedvalue == status) {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => MyHomePage()));
-      } else if (doctor == role &&
-          storedvalue == status) {
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => HomePage(),
-        ));
-      }else {
+            context, MaterialPageRoute(builder: (context) => HomePage()));
+      // } else if (user == role &&
+      //     storedvalue == status) {
+      //   Navigator.of(context).push(MaterialPageRoute(
+      //     builder: (context) => HomePage(),
+      //   ));
+      // }else {
         Fluttertoast.showToast(
           msg: "Please wait for admin approval",
           backgroundColor: Colors.grey,

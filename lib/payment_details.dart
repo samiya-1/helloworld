@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'Edit_Profile.dart';
-import 'Home.dart';
-
 class Pay_Details extends StatefulWidget {
   const Pay_Details({Key? key}) : super(key: key);
 

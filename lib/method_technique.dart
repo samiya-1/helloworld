@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'Edit_Profile.dart';
-import 'Home.dart';
 import 'methodTechnique_Details.dart';
 
 class Method_Technique extends StatefulWidget {
@@ -38,7 +36,7 @@ class _ClassNotifyState extends State<Method_Technique> {
                   trailing: Icon(Icons.keyboard_arrow_right_sharp),
                   onTap: () {
 //Navigator pushes FirstScreen.
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const Meth_Tech_Details(),),);
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const Method_Details(),),);
                   },
                 );
               },

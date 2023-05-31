@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'Scheme_Message.dart';
+import 'package:helloworld/Scheme_Message.dart';
 
 class Scheme_Details extends StatefulWidget {
   const Scheme_Details({Key? key}) : super(key: key);

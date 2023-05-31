@@ -1,12 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:helloworld/rent_machine.dart';
-import 'package:helloworld/sell_product.dart';
-import 'package:helloworld/buy_product.dart';
-
-import 'alert_rent_machine.dart';
-import 'buy_machine.dart';
-import 'machine_sell_alert.dart';
+import 'package:helloworld/alert_rent_machine.dart';
+import 'package:helloworld/buy_machine.dart';
+import 'package:helloworld/machine_sell_alert.dart';
 
 class Machine extends StatelessWidget {
   const Machine({Key? key}) : super(key: key);

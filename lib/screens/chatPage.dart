@@ -10,12 +10,7 @@ class ChatPage extends StatefulWidget {
 }
 class _ChatPageState extends State<ChatPage> {
   List<ChatUsers> chatUsers = [
-  ChatUsers(text: "Jane Russel",
-  secondaryText: "Awesome Setup",
-  image: "Images/img.png",
-  time: "Now",
-  name: 'Afeefa',
-  messageText: 'hello ', imageURL: 'Images/img.png'),
+  ChatUsers(text: "Jane Russel", secondaryText: "Awesome Setup", image: "Images/img.png", time: "Now", name: 'Afeefa', messageText: 'hello ', imageURL: 'Images/img.png'),
   ChatUsers(text: "Jane Russel",
   secondaryText: "Awesome Setup",
   image: "Images/img_3.png",
@@ -96,20 +91,35 @@ class _ChatPageState extends State<ChatPage> {
               padding: EdgeInsets.only(top: 16),
               physics: NeverScrollableScrollPhysics(),
               itemBuilder: (context, index){
-                return GestureDetector(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Chats()));
-                  },
-                  child: ConversationList(
-                    name: chatUsers[index].name,
-                    messageText: chatUsers[index].messageText,
-                    imageUrl: chatUsers[index].imageURL,
-                    time: chatUsers[index].time,
-                    isMessageRead: (index == 0 || index == 3)?true:false,
-                  ),
+                return ConversationList(
+                  name: chatUsers[index].name,
+                  messageText: chatUsers[index].messageText,
+                  imageUrl: chatUsers[index].imageURL,
+                  time: chatUsers[index].time,
+                  isMessageRead: (index == 0 || index == 3)?true:false,
                 );
               },
             ),
+            // ListView.builder(
+            //   itemCount: chatUsers.length,
+            //   shrinkWrap: true,
+            //   padding: EdgeInsets.only(top: 16),
+            //   physics: NeverScrollableScrollPhysics(),
+            //   itemBuilder: (context, index){
+            //     return GestureDetector(
+            //       onTap: (){
+            //         Navigator.push(context, MaterialPageRoute(builder: (context)=>Chats()));
+            //       },
+            //       child: ConversationList(
+            //         name: chatUsers[index].name,
+            //         messageText: chatUsers[index].messageText,
+            //         imageUrl: chatUsers[index].imageURL,
+            //         time: chatUsers[index].time,
+            //         isMessageRead: (index == 0 || index == 3)?true:false,
+            //       ),
+            //     );
+            //   },
+            // ),
           ],
         ),
       ),

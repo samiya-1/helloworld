@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:helloworld/product_sell_alert.dart';
-import 'package:helloworld/sell_product.dart';
 import 'package:helloworld/buy_product.dart';
 
 class Product extends StatelessWidget {

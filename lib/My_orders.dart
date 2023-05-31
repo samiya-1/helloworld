@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'Details_of _Order.dart';
-import 'Edit_Profile.dart';
-import 'Home.dart';
-import 'notification.dart';
+import 'package:helloworld/Details_of%20_Order.dart';
+import 'package:helloworld/Home.dart';
+import 'package:helloworld/Profile.dart';
+import 'package:helloworld/notification.dart';
 
 class My_Orders extends StatefulWidget {
   const My_Orders({Key? key}) : super(key: key);
