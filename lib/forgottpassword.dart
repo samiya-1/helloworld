@@ -17,7 +17,8 @@ class _FpasswordState extends State<Fpassword> {
       appBar: AppBar(
         backgroundColor: Colors.green,
       ),
-        body:
+        body:SingleChildScrollView(
+    child:
         /*decoration: const BoxDecoration(
         image: DecorationImage(image: AssetImage("Images/img_1.png"),
     fit: BoxFit.fill)
@@ -61,7 +62,7 @@ class _FpasswordState extends State<Fpassword> {
                   child: const Text("Submit")),
         ],
     ),
-
+        )
 
     );
   }

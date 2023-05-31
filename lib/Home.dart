@@ -1,18 +1,17 @@
+import 'package:helloworld/Complaint_details.dart';
+import 'package:helloworld/My_orders.dart';
 import 'package:helloworld/feedback.dart';
 import 'package:flutter/material.dart';
 import 'package:helloworld/gov_Schemes.dart';
 import 'package:helloworld/machines.dart';
 import 'package:helloworld/market_prices.dart';
+import 'package:helloworld/method_technique.dart';
 import 'package:helloworld/notification.dart';
-import 'package:helloworld/Profile.dart';
+import 'package:helloworld/MyProfile.dart';
 import 'package:helloworld/payment_details.dart';
 import 'package:helloworld/products.dart';
 import 'package:helloworld/screens/chatPage.dart';
-import 'My_orders.dart';
-import 'homepage.dart';
-import 'Complaint_details.dart';
-import 'complaint.dart';
-import 'method_technique.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -27,7 +26,7 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> screen =[
     const HomePage(),
     const ClassNotify(),
-    const Profile(),
+    const profile(),
     const My_Orders(),
   ];
 
@@ -107,10 +106,10 @@ class _HomePageState extends State<HomePage> {
             GestureDetector(
               onTap: () {
                 setState(() {
-                  currentScreen=Profile();
+                  currentScreen=profile();
                   currentTab = 3;
                 });
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>Profile()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>profile()));
               },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,

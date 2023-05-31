@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/Login.dart';
+import 'package:helloworld/Register.dart';
 
-import 'Reg.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({Key? key}) : super(key: key);
@@ -37,7 +37,7 @@ class Welcome extends StatelessWidget {
             const SizedBox(height: 35,),
 
             ElevatedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>const Reg()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> Register()));
             },
               style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(29.0)),backgroundColor: Colors.green,fixedSize: Size(350, 57)),
               child: const Text("Signup",style: TextStyle(
