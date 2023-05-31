@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:helloworld/rent_machine.dart';
 
 import 'Machine.dart';
 import 'buy_machine.dart';
@@ -29,7 +30,7 @@ class _alert_rent_machineState extends State<alert_rent_machine> {
             ),
 
             ElevatedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>Buy_Machine(),));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>Rent_Machine(),));
             },
               style:ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),primary: Colors.green,fixedSize: Size(200, 50)),
               child: const Text("Yes",style: TextStyle(color: Colors.white),),

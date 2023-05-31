@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:helloworld/Machine.dart';
 import 'package:helloworld/rent_machine.dart';
 
-import 'Machine.dart';
-import 'buy_machine.dart';
+
 
 class alert_sell_machine extends StatefulWidget {
   const alert_sell_machine({Key? key}) : super(key: key);
@@ -29,7 +29,8 @@ class _alert_sell_machineState extends State<alert_sell_machine> {
             ),
 
             ElevatedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>Rent_Machine(),));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>Sell_Machine(),
+              ));
             },
               style:ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),primary: Colors.green,fixedSize: Size(200, 50)),
               child: Text("Yes",style: TextStyle(color: Colors.white),),
