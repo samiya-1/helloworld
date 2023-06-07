@@ -33,15 +33,15 @@ class _Scheme_DetailsState extends State<Scheme_Details> {
               height: 350.0,
               fit: BoxFit.fill,
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
               child: Text("Scheme name"),
               // hintText: "Enter Product Name",
               /*border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20)*/
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
               child: Text("Scheme Date"),
               // hintText: "Enter Product Name",
               /*border: OutlineInputBorder(
@@ -50,27 +50,27 @@ class _Scheme_DetailsState extends State<Scheme_Details> {
 
 
 
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
               child: Text("Whom can apply"),
               // hintText: "Enter Product Name",
               /*border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20)*/
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text("Benifits"),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text("Benefits"),
               // hintText: "Enter Product Name",
               /*border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20)*/
             ),
-            SizedBox(height: 35,),
+            const SizedBox(height: 35,),
             ElevatedButton(onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (context)=>Scheme_Message()));
             },
               style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(29.0)),primary: Colors.green
                   ,fixedSize: Size(350, 57)),
-              child: Text("Apply",style: TextStyle(
+              child: const Text("Apply",style: TextStyle(
                   fontSize: 18,color: Colors.white
               ),),),
           ],),

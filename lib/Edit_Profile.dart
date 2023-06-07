@@ -18,7 +18,7 @@ class _ProfileState extends State<Profile> {
   final List<Widget> screen =[
     const HomePage(),
     const ClassNotify(),
-    const My_Orders(),
+     My_Orders(),
     const Profile(),
 
   ];

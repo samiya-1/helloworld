@@ -1,7 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:helloworld/API.dart';
 import 'package:helloworld/Home.dart';
 import 'package:helloworld/My_orders.dart';
-import 'package:helloworld/Profile.dart';
+
+import 'MyProfile.dart';
 
 class ClassNotify extends StatefulWidget {
   const ClassNotify({Key? key}) : super(key: key);
@@ -21,7 +26,33 @@ class _ClassNotifyState extends State<ClassNotify> {
   ];
 
   Widget currentScreen = ClassNotify();
+  List _loaddata=[];
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _fetchData();
+  }
+  _fetchData() async {
+    var res = await Api()
+        .getData('/api/krishibhavanNotifications');
+    if (res.statusCode == 200) {
+      var items = json.decode(res.body)['data'];
+      print(items);
+      setState(() {
+        _loaddata = items;
 
+      });
+    } else {
+      setState(() {
+        _loaddata = [];
+        Fluttertoast.showToast(
+          msg:"Currently there is no data available",
+          backgroundColor: Colors.grey,
+        );
+      });
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -125,28 +156,51 @@ class _ClassNotifyState extends State<ClassNotify> {
 
         ),
 
-        body:  Padding(
-            padding: EdgeInsets.all(5),
-            child: ListView.separated(
-              itemBuilder: (context,index){
-                return ListTile(
-                  leading: CircleAvatar(
-                      backgroundColor: Colors.green,
-                      child: Icon(Icons.notifications, size: 25,color: Colors.white,)
-                  ) ,
-                  title: Text("Notification",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
-                  subtitle: Text(" Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content."),
-                  trailing: Text('time '),
-                );
-              },
-              separatorBuilder: (context, index) {
-                return Divider(height: 30, thickness: 1,);
-              },
-              itemCount: 13,
+        body: ListView.builder(
+          shrinkWrap: true,
+          itemCount: _loaddata.length,
+          itemBuilder: (context,index){
 
-            ),
-          ),
+            return Padding(
+              padding: const EdgeInsets.only(top: 16,right: 12,left: 12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      CircleAvatar(
+                        backgroundColor: Colors.white,
+                        child: Icon(Icons.notifications_outlined,color: Colors.green,size: 36,),
+                      ),
+                      SizedBox(width: 16,),
+                      Expanded(
+                        flex: 6,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
 
+                            Text(_loaddata[index]['notification'],style: TextStyle(fontSize: 16),textAlign: TextAlign.justify,),
+                          ],
+                        ),
+                      ),
+                      SizedBox(width: 14,),
+
+                      Text(_loaddata[index]['date'],style: TextStyle(fontSize: 15))
+                    ],
+                  ),
+                  SizedBox(height: 12,),
+                  Divider(
+                    color: Colors.grey[300],
+                    thickness: 2,
+                  )
+                ],
+              ),
+            );
+          },
+
+
+        )
 
 
     );

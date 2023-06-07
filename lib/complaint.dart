@@ -1,7 +1,9 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:helloworld/API.dart';
 import 'package:helloworld/Complaint_Message.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Complaint extends StatefulWidget {
   const Complaint({Key? key}) : super(key: key);
@@ -11,6 +13,45 @@ class Complaint extends StatefulWidget {
 }
 
 class _ComplaintState extends State<Complaint> {
+  TextEditingController complaintController=TextEditingController();
+  late SharedPreferences prefs;
+  late int user;
+  bool _isLoading=false;
+  void Addcomplaint()
+  async {
+    prefs = await SharedPreferences.getInstance();
+    user = (prefs.getInt('user')?? 0);
+    setState(() {
+      _isLoading = true;
+    });
+
+    var data = {
+      "complaint": complaintController.text.trim(),
+      "user":user.toString(),
+    };
+
+    print(" data${data}");
+    var res = await Api().authData(data,'/api/user_complaint');
+    var body = json.decode(res.body);
+    print(body);
+    if(body['success']==true)
+    {
+
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>Comp_Message()));
+      Fluttertoast.showToast(
+        msg: body['message'].toString(),
+        backgroundColor: Colors.grey,
+      );
+    }
+    else
+    {
+      Fluttertoast.showToast(
+        msg: body['message'].toString(),
+        backgroundColor: Colors.grey,
+      );
+
+    }
+  }
   @override
   Widget build(BuildContext context) {
     var size=MediaQuery.of(context).size;
@@ -21,60 +62,62 @@ class _ComplaintState extends State<Complaint> {
         title: Text('Complaint'),
       ),
 
-      body:  Column(
-          children: [
-            Container(
-              height: size.height*.35,
-              child:
-              Image.asset('Images/img_14.png',
-                fit: BoxFit.cover,
+      body:  SingleChildScrollView(
+        child: Column(
+            children: [
+              Container(
+                height: size.height*.35,
+                child:
+                Image.asset('Images/img_14.png',
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 12,right: 12,top: 20),
-              child: Container(
-                height: 350.0,
-                child: Stack(
-                  children: [
-                    TextField(
-                      maxLines: 10,
-                      decoration: InputDecoration(
-                        hintText: 'Please Explain breifly about your issue',
-                        hintStyle: TextStyle(
-                            fontSize: 15,
-                            color: Colors.grey
-                        ),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey),
-                        ),
+              Padding(
+                padding: const EdgeInsets.only(left: 12,right: 12,top: 20),
+                child: Container(
+                  height: 350.0,
+                  child: Stack(
+                    children: [
+                      TextField(
+                        controller: complaintController,
+                        maxLines: 10,
+                        decoration: InputDecoration(
+                          hintText: 'Please Explain breifly about your issue',
+                          hintStyle: TextStyle(
+                              fontSize: 15,
+                              color: Colors.grey
+                          ),
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.grey),
+                          ),
 
-                      ),
-                    ),
-
-
-
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Container(
-                        child: ElevatedButton(
-                          onPressed: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>Comp_Message(),));
-
-                          },
-                          child: Text('Submit',style: TextStyle(fontSize: 19),),
-                          style: ElevatedButton.styleFrom(fixedSize: Size(230, 55),shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(29.0)),primary: Colors.green),
                         ),
                       ),
-                    )
-                  ],
+
+
+
+                      Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Container(
+                          child: ElevatedButton(
+                            onPressed: (){
+                              Addcomplaint();
+                            },
+                            child: Text('Submit',style: TextStyle(fontSize: 19),),
+                            style: ElevatedButton.styleFrom(fixedSize: Size(230, 55),shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(29.0)),primary: Colors.green),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+
                 ),
 
+
               ),
-
-
-            ),
-          ],
-        ),
+            ],
+          ),
+      ),
 
 
     );

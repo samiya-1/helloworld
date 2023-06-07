@@ -1,14 +1,43 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:helloworld/API.dart';
 import 'package:helloworld/complaint.dart';
 class Complaint_Details extends StatefulWidget {
-  const Complaint_Details({Key? key}) : super(key: key);
-
-  @override
-  State<Complaint_Details> createState() => _Complaint_DetailsState();
+   Complaint_Details({Key? key}) : super(key: key);
+   @override
+   State<Complaint_Details> createState() => _Complaint_DetailsState();
 }
-
 class _Complaint_DetailsState extends State<Complaint_Details> {
 
+   List _loaddata=[];
+   @override
+   void initState() {
+     // TODO: implement initState
+     super.initState();
+     _fetchData();
+   }
+  _fetchData() async {
+    var res = await Api()
+        .getData('/api/alluser_complaint');
+    if (res.statusCode == 200) {
+      var items = json.decode(res.body)['data'];
+      print(items);
+      setState(() {
+        _loaddata = items;
+
+      });
+    } else {
+      setState(() {
+        _loaddata =[];
+        Fluttertoast.showToast(
+          msg:"Currently there is no data available",
+          backgroundColor: Colors.grey,
+        );
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,27 +48,52 @@ class _Complaint_DetailsState extends State<Complaint_Details> {
 
         ),
 
-        body:  Padding(
-            padding: EdgeInsets.all(5),
-            child: ListView.separated(
-              itemBuilder: (context,index){
-                return ListTile(
-                  leading: CircleAvatar(
-                      backgroundColor: Colors.green,
-                      child: Icon(Icons.reviews, size: 25,color: Colors.white,)
-                  ) ,
-                  title: Text("Complaints",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
-                  subtitle: Text(" Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content."),
-                  trailing: Text('Date'),
-                );
-              },
-              separatorBuilder: (context, index) {
-                return Divider(height: 30, thickness: 1,);
-              },
-              itemCount: 13,
+        body: ListView.builder(
+          shrinkWrap: true,
+          itemCount: _loaddata.length,
+          itemBuilder: (context,index){
 
-            ),
-          ),
+            return Padding(
+              padding: const EdgeInsets.only(top: 16,right: 12,left: 12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      CircleAvatar(
+                        backgroundColor: Colors.white,
+                        child: Icon(Icons.notifications_outlined,color: Colors.green,size: 36,),
+                      ),
+                      SizedBox(width: 16,),
+                      Expanded(
+                        flex: 6,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+
+                            Text(_loaddata[index]['complaint'],style: TextStyle(fontSize: 16),textAlign: TextAlign.justify,),
+
+                          ],
+                        ),
+                      ),
+                      SizedBox(width: 14,),
+
+                      Text(_loaddata[index]['date'],style: TextStyle(fontSize: 15))
+                    ],
+                  ),
+                  SizedBox(height: 12,),
+                  Divider(
+                    color: Colors.grey[300],
+                    thickness: 2,
+                  )
+                ],
+              ),
+            );
+          },
+
+
+        ),
 
 
     floatingActionButton: FloatingActionButton.extended(

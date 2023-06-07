@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:helloworld/Scheme_Message.dart';
-
 class Method_Details extends StatefulWidget {
   const Method_Details({Key? key}) : super(key: key);
 

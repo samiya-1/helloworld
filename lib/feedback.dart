@@ -1,7 +1,11 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:helloworld/API.dart';
+import 'package:helloworld/Complaint_Message.dart';
 import 'package:helloworld/feedback%20Message.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 class Rating extends StatefulWidget {
   const Rating({Key? key}) : super(key: key);
 
@@ -10,6 +14,45 @@ class Rating extends StatefulWidget {
 }
 
 class _RatingState extends State<Rating> {
+  TextEditingController feedbackController=TextEditingController();
+  late SharedPreferences prefs;
+  late int user;
+  bool _isLoading=false;
+  void AddFeedback()
+  async {
+    prefs = await SharedPreferences.getInstance();
+    user = (prefs.getInt('user')?? 0);
+    setState(() {
+      _isLoading = true;
+    });
+
+    var data = {
+      "feedback": feedbackController.text.trim(),
+      "user":user.toString(),
+    };
+
+    print(" data${data}");
+    var res = await Api().authData(data,'/api/feedback');
+    var body = json.decode(res.body);
+    print(body);
+    if(body['success']==true)
+    {
+
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>Feed_Message()));
+      Fluttertoast.showToast(
+        msg: body['message'].toString(),
+        backgroundColor: Colors.grey,
+      );
+    }
+    else
+    {
+      Fluttertoast.showToast(
+        msg: body['message'].toString(),
+        backgroundColor: Colors.grey,
+      );
+
+    }
+  }
   @override
   Widget build(BuildContext context) {
     var size=MediaQuery.of(context).size;
@@ -41,7 +84,8 @@ class _RatingState extends State<Rating> {
               direction: Axis.horizontal,
               allowHalfRating: true,
               itemCount: 5,
-              itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+              itemPadding:
+              EdgeInsets.symmetric(horizontal: 4.0),
               itemBuilder: (context, _) => Icon(
                 Icons.star,
                 color: Colors.green,
@@ -58,9 +102,10 @@ class _RatingState extends State<Rating> {
                   child: Stack(
 
                     children: [
-                      TextField(
+                       TextField(
+                controller: feedbackController,
                         maxLines: 10,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           hintText: 'Enter your feedback if any',
                           hintStyle: TextStyle(
                               fontSize: 15,
@@ -77,7 +122,7 @@ class _RatingState extends State<Rating> {
                         child: Container(
                           child: ElevatedButton(
                             onPressed: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>const Feed_Message()));
+                              AddFeedback();
                             },
                             child: Text('Submit',style: TextStyle(fontSize: 19),),
                             style: ElevatedButton.styleFrom(fixedSize: Size(100, 55),shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(29.0)),primary: Colors.green),

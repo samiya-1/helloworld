@@ -15,7 +15,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  TextEditingController emailController=TextEditingController();
+  TextEditingController unameController=TextEditingController();
   TextEditingController pwdController=TextEditingController();
 
  bool _isLoading=false;
@@ -23,17 +23,19 @@ class _LoginState extends State<Login> {
   late SharedPreferences localStorage;
   String role="";
   String status="";
-  String storedvalue="true";
-  String user="";
-  _pressLoginButton() async {
+  String storedvalue="1";
+  String user="user";
+
+  _pressLoginButton()
+  async {
     setState(() {
       _isLoading = true;
     });
     var data = {
-      'username': emailController.text.trim(), //username for email
+      'username': unameController.text.trim(), //username for email
       'password': pwdController.text.trim()
     };
-    var res = await Api().authData(data,'api/login_users');
+    var res = await Api().authData(data,'/api/login_user');
     var body = json.decode(res.body);
 
     if (body['success'] == true) {
@@ -45,25 +47,16 @@ class _LoginState extends State<Login> {
       localStorage = await SharedPreferences.getInstance();
       localStorage.setString('role', role.toString());
       localStorage.setInt('login_id', body['data']['login_id']);
-      localStorage.setInt('user_id',  body['data']['user_id']);
+      localStorage.setInt('user',  body['data']['user']);
 
       print('login_id ${body['data']['login_id']}');
-      print('user_id ${body['data']['user_id']}');
+      print('user ${body['data']['user']}');
 
-      /*   if (user == role.replaceAll('"', '') &&
-        storedvalue == status.replaceAll('"', '')) {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => MyHomePage()));
-    } else if (doctor == role.replaceAll('"', '') &&
-        storedvalue == status.replaceAll('"', '')) {
-      Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => DoctHome(),
-      ));
-   }*/
       if (user == role &&
           storedvalue == status) {
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => HomePage()));
+            //context, MaterialPageRoute(builder: (context) => HomePage()));
       // } else if (user == role &&
       //     storedvalue == status) {
       //   Navigator.of(context).push(MaterialPageRoute(
@@ -76,21 +69,18 @@ class _LoginState extends State<Login> {
         );
       }
 
-
-    } else {
-      Fluttertoast.showToast(
-        msg: body['message'].toString(),
-        backgroundColor: Colors.grey,
-      );
     }
+    // else {
+    //   Fluttertoast.showToast(
+    //     msg: body['message'].toString(),
+    //     backgroundColor: Colors.green,
+    //   );
+    // }
   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        /*appBar: AppBar(
-    leading: IconButton(onPressed: (){
-      Navigator.pop(context);},
-      icon: Icon(Icons.arrow_back),)*/
+
         body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -103,6 +93,7 @@ class _LoginState extends State<Login> {
           Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
+                  controller: unameController,
                     style: TextStyle(color: Colors.green),
                 decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -121,6 +112,7 @@ class _LoginState extends State<Login> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
+              controller: pwdController,
                 style: TextStyle(color: Colors.green),
                 decoration: InputDecoration(
                   focusedBorder: OutlineInputBorder(
@@ -146,7 +138,10 @@ class _LoginState extends State<Login> {
 
 
           SizedBox(height: 20,),
-          ElevatedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));},
+          ElevatedButton(onPressed: ()
+          {
+                    _pressLoginButton();
+            },
             style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(29.0)),primary: Colors.green,fixedSize: Size(350, 57)),
             child: Text("Login",style: TextStyle(
                 fontSize: 18,color: Colors.white
@@ -167,11 +162,6 @@ class _LoginState extends State<Login> {
         ],
                    )
     );
-
-
-
-
-
 
     }
 }

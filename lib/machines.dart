@@ -1,7 +1,8 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:helloworld/API.dart';
 import 'package:helloworld/Machine.dart';
-
 class Machines extends StatefulWidget {
   const Machines({Key? key}) : super(key: key);
 
@@ -10,256 +11,126 @@ class Machines extends StatefulWidget {
 }
 
 class _MachinesState extends State<Machines> {
+  List _loaddata=[];
+
+  _fetchData() async {
+    var res = await Api()
+        .getData('/api/allmachine');
+    if (res.statusCode == 200) {
+      var items = json.decode(res.body)['data'];
+      print(items);
+      setState(() {
+        _loaddata = items;
+
+      });
+    } else {
+      setState(() {
+        _loaddata = [];
+        Fluttertoast.showToast(
+          msg:"Currently there is no data available",
+          backgroundColor: Colors.black,
+        );
+      });
+    }
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _fetchData();
+  }
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.green,
-          title: Text('Machines',),
-        ),
-        body: Stack(
-            children: [
-              Container(
-                // height: size.height * .45,
-                  decoration: BoxDecoration(
-                    color: Colors.green,)
-              ),
-              SafeArea(
-                  child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 17),
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Expanded(
-                                child: GridView.count(
-                                    crossAxisCount: 2,
-                                    childAspectRatio: .85,
-                                    crossAxisSpacing: 20,
-                                    mainAxisSpacing: 20,
-                                    children: [
+    return SafeArea(
+        child: Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.green,
+            title: Text('machine',),
+          ),
+          body: Stack(
+              children: [
+                SingleChildScrollView(
+                  child: Container(
+                    // height: size.height * .45,
+                      decoration: BoxDecoration(
+                        color: Colors.green,)
+                  ),
+                ),
+                SafeArea(
+                    child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 17),
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Expanded(
+                                child: GridView.builder(
+                                    gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                                        maxCrossAxisExtent: 200,
+                                        childAspectRatio: 3 / 2,
+                                        crossAxisSpacing: 20,
+                                        mainAxisSpacing: 20),
+                                    itemCount: _loaddata.length,
+                                    itemBuilder: (BuildContext ctx, index) {
+                                      return
+                                        Container(
+                                          padding: EdgeInsets.all(20),
+                                          decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius: BorderRadius.circular(15),
+                                              boxShadow: [
+                                                BoxShadow(
+                                                    offset: Offset(0, 17),
+                                                    blurRadius: 14,
+                                                    spreadRadius: -23
+                                                )
+                                              ]
+                                          ),
+                                          child: Material(
+                                            color: Colors.transparent,
+                                            child: InkWell(
+                                              onTap: () {
+                                                Navigator.push(context,
+                                                    MaterialPageRoute(builder: (context) => Machine()));
+                                              },
+                                              child: Column(
+                                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                                children: [
+                                                  Image.network('https://picsum.photos/250?image=9',height: 50,
+                                                    width: 200,),
 
-                                      Container(
-                                        padding: EdgeInsets.all(20),
-                                        decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius: BorderRadius.circular(15),
-                                            boxShadow: [
-                                              BoxShadow(
-                                                  offset: Offset(0,17),
-                                                  blurRadius: 14,
-                                                  spreadRadius: -23
-                                              )
-                                            ]
-                                        ),
-                                        child: Material(
-                                          color: Colors.transparent,
-                                          child: InkWell(
-                                            onTap: () {
-                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Machine()));
-                                            },
-                                            child: Column(
-                                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                              children: [
+                                                  Spacer(),
+                                                  Text(_loaddata[index]['machine_name'], textAlign: TextAlign.center,
+                                                    style: TextStyle(
+                                                        fontSize: 18, fontWeight: FontWeight.bold),)
 
-                                                new Image.asset('Images/New_Machines.jpg',
-                                                  height: 120,
-                                                  width: 200,
-                                                  alignment: Alignment.topCenter,
-                                                ),
-                                                Spacer(),
-                                                Text('Machine1',textAlign: TextAlign.center,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
+                                                ],
 
-                                              ],
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                      ),
+                                        );
+                                    }
 
-                                      Container(
-                                        padding: EdgeInsets.all(20),
-                                        decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius: BorderRadius.circular(15),
-                                            boxShadow: [
-                                              BoxShadow(
-                                                  offset: Offset(0,17),
-                                                  blurRadius: 14,
-                                                  spreadRadius: -23
-                                              )
-                                            ]
-                                        ),
-                                        child: Material(
-                                          color: Colors.transparent,
-                                          child: InkWell(
-                                            onTap: () {
-                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Machine()));
-                                            },
-                                            child: Column(
-                                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                              children: [
+                                ),
+                              ),
+                            ] )
+                    )
 
-                                                new Image.asset('Images/New_Machines.jpg',
-                                                  height: 120,
-                                                  width: 200,
-                                                  alignment: Alignment.topCenter,
-                                                ),
-                                                Spacer(),
-                                                Text('Machine2',textAlign: TextAlign.center,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
 
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        padding: EdgeInsets.all(20),
-                                        decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius: BorderRadius.circular(15),
-                                            boxShadow: [
-                                              BoxShadow(
-                                                  offset: Offset(0,17),
-                                                  blurRadius: 14,
-                                                  spreadRadius: -23
-                                              )
-                                            ]
-                                        ),
-                                        child: Material(
-                                          color: Colors.transparent,
-                                          child: InkWell(
-                                            onTap: () {
-                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Machine()));
-                                            },
-                                            child: Column(
-                                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                              children: [
+                )
+              ]
+          ),
+          // floatingActionButton: FloatingActionButton.extended(
+          //   onPressed: () {
+          //     Navigator.push(context, MaterialPageRoute(builder: (context)=>AddProduct(),));
+          //
+          //   },
+          //   label: const Text('Add New Product'),
+          //   icon: const Icon(Icons.add),
+          //   backgroundColor: Colors.green,
+          // ),
+        )
 
-                                                new Image.asset('Images/New_Machines.jpg',
-                                                  height: 120,
-                                                  width: 200,
-                                                  alignment: Alignment.topCenter,
-                                                ),
-                                                Spacer(),
-                                                Text('Machine3',textAlign: TextAlign.center,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
-
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        padding: EdgeInsets.all(20),
-                                        decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius: BorderRadius.circular(15),
-                                            boxShadow: [
-                                              BoxShadow(
-                                                  offset: Offset(0,17),
-                                                  blurRadius: 14,
-                                                  spreadRadius: -23
-                                              )
-                                            ]
-                                        ),
-                                        child: Material(
-                                          color: Colors.transparent,
-                                          child: InkWell(
-                                            onTap: () {
-                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Machine()));
-                                            },
-                                            child: Column(
-                                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                              children: [
-
-                                                new Image.asset('Images/New_Machines.jpg',
-                                                  height: 120,
-                                                  width: 200,
-                                                  alignment: Alignment.topCenter,
-                                                ),
-                                                Spacer(),
-                                                Text('Machine4',textAlign: TextAlign.center,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
-
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        padding: EdgeInsets.all(20),
-                                        decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius: BorderRadius.circular(15),
-                                            boxShadow: [
-                                              BoxShadow(
-                                                  offset: Offset(0,17),
-                                                  blurRadius: 14,
-                                                  spreadRadius: -23
-                                              )
-                                            ]
-                                        ),
-                                        child: Material(
-                                          color: Colors.transparent,
-                                          child: InkWell(
-                                            onTap: () {
-                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Machine()));
-                                            },
-                                            child: Column(
-                                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                              children: [
-
-                                                new Image.asset('Images/New_Machines.jpg',
-                                                  height: 120,
-                                                  width: 200,
-                                                  alignment: Alignment.topCenter,
-                                                ),
-                                                Spacer(),
-                                                Text('Machine5',textAlign: TextAlign.center,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
-
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        padding: EdgeInsets.all(20),
-                                        decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius: BorderRadius.circular(15),
-                                            boxShadow: [
-                                              BoxShadow(
-                                                  offset: Offset(0,17),
-                                                  blurRadius: 14,
-                                                  spreadRadius: -23
-                                              )
-                                            ]
-                                        ),
-                                        child: Material(
-                                          color: Colors.transparent,
-                                          child: InkWell(
-                                            onTap: () {
-                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Machine()));
-                                            },
-                                            child: Column(
-                                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                              children: [
-
-                                                new Image.asset('Images/New_Machines.jpg',
-                                                  height: 120,
-                                                  width: 200,
-                                                  alignment: Alignment.topCenter,
-                                                ),
-                                                Spacer(),
-                                                Text('Machine6',textAlign: TextAlign.center,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
-
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ] )
-                            )
-                          ] )
-                  )
-              )
-            ] )));
+    );
   }
 }

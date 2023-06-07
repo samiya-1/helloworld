@@ -1,4 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:helloworld/API.dart';
 
 class Pay_Details extends StatefulWidget {
   const Pay_Details({Key? key}) : super(key: key);
@@ -8,8 +12,33 @@ class Pay_Details extends StatefulWidget {
 }
 
 class _ClassNotifyState extends State<Pay_Details> {
+  List _loaddata=[];
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _fetchData();
+  }
+  _fetchData() async {
+    var res = await Api()
+        .getData('/api/payment');
+    if (res.statusCode == 200) {
+      var items = json.decode(res.body)['data'];
+      print(items);
+      setState(() {
+        _loaddata = items;
 
-
+      });
+    } else {
+      setState(() {
+        _loaddata = [];
+        Fluttertoast.showToast(
+          msg:"Currently there is no data available",
+          backgroundColor: Colors.grey,
+        );
+      });
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,27 +47,52 @@ class _ClassNotifyState extends State<Pay_Details> {
           title: Text('Payment Details',),
         ),
 
-        body:  Padding(
-            padding: EdgeInsets.all(5),
-            child: ListView.separated(
-              itemBuilder: (context,index){
-                return ListTile(
-                  leading: CircleAvatar(
-                      backgroundColor: Colors.green,
-                      child: Icon(Icons.label_important, size: 25,color: Colors.white,)
-                  ) ,
-                  title: Text("Payment",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
-                  subtitle: Text(" Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content."),
-                  trailing: Text('Date'),
-                );
-              },
-              separatorBuilder: (context, index) {
-                return Divider(height: 30, thickness: 1,);
-              },
-              itemCount: 13,
+        body: ListView.builder(
+          shrinkWrap: true,
+          itemCount: _loaddata.length,
+          itemBuilder: (context,index){
 
-            ),
-          ),
+            return Padding(
+              padding: const EdgeInsets.only(top: 16,right: 12,left: 12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      CircleAvatar(
+                        backgroundColor: Colors.white,
+                        child: Icon(Icons.notifications_outlined,color: Colors.green,size: 36,),
+                      ),
+                      SizedBox(width: 16,),
+                      Expanded(
+                        flex: 6,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+
+                            Text(_loaddata[index]['amount'],style: TextStyle(fontSize: 16),textAlign: TextAlign.justify,),
+                            Text(_loaddata[index]['payment_method'],style: TextStyle(fontSize: 16),textAlign: TextAlign.justify,),
+                            Text(_loaddata[index]['date'],style: TextStyle(fontSize: 16),textAlign: TextAlign.justify,),
+                            Text(_loaddata[index]['user'],style: TextStyle(fontSize: 16),textAlign: TextAlign.justify,),
+
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 12,),
+                  Divider(
+                    color: Colors.grey[300],
+                    thickness: 2,
+                  )
+                ],
+              ),
+            );
+          },
+
+
+        )
 
 
 

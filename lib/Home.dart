@@ -28,8 +28,8 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> screen =[
     const HomePage(),
     const ClassNotify(),
-    const profile(),
-    const My_Orders(),
+    const Profile(),
+     My_Orders(),
   ];
 
   Widget currentScreen = const HomePage();
@@ -108,10 +108,10 @@ class _HomePageState extends State<HomePage> {
             GestureDetector(
               onTap: () {
                 setState(() {
-                  currentScreen=profile();
+                  currentScreen=Profile();
                   currentTab = 3;
                 });
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>profile()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>Profile()));
               },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -442,7 +442,7 @@ class _HomePageState extends State<HomePage> {
                             color: Colors.transparent,
                             child: InkWell(
                               onTap: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>const Complaint_Details()));
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=> Complaint_Details()));
                               },
                               child: Column(
                                 children: [

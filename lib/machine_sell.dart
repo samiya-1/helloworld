@@ -45,7 +45,7 @@ class _Sell_MachineState extends State<Sell_Machine> {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text("Price is"),
+                    child: Text("The amount to be recieved is"),
                     // hintText: "Enter Product Name",
                     /*border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20)*/

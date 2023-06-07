@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:helloworld/alert_rent_machine.dart';
 import 'package:helloworld/buy_machine.dart';
 import 'package:helloworld/machine_sell_alert.dart';
 
-class Machine extends StatelessWidget {
+class Machine extends StatefulWidget  {
   const Machine({Key? key}) : super(key: key);
 
   @override
@@ -32,34 +31,34 @@ class Machine extends StatelessWidget {
         ),
 
 
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text("Machine Name"),
-          // hintText: "Enter Product Name",
-          /*border: OutlineInputBorder(
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("Machine Name"),
+              // hintText: "Enter Product Name",
+              /*border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20)*/
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text("Quantity"),
-          // hintText: "Enter Product Name",
-          /*border: OutlineInputBorder(
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("Quantity"),
+              // hintText: "Enter Product Name",
+              /*border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20)*/
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text("Price"),
-          // hintText: "Enter Product Name",
-          /*border: OutlineInputBorder(
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("Price"),
+              // hintText: "Enter Product Name",
+              /*border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20)*/
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text("Usage Date"),
-          // hintText: "Enter Product Name",
-          /*border: OutlineInputBorder(
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("Usage Date"),
+              // hintText: "Enter Product Name",
+              /*border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20)*/
-        ),
+            ),
             ElevatedButton(onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (context)=>Buy_Machine()));
             },
@@ -93,5 +92,11 @@ class Machine extends StatelessWidget {
           ] ),
 
     );
+  }
+
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    throw UnimplementedError();
   }
 }

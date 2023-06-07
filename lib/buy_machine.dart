@@ -45,7 +45,7 @@ class _Buy_MachineState extends State<Buy_Machine> {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text("Price is"),
+                    child: Text("The amount to be payed is"),
                     // hintText: "Enter Product Name",
                     /*border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20)*/

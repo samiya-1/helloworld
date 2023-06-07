@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:helloworld/Scheme_Message.dart';
 
 class Scheme_Details extends StatefulWidget {
   const Scheme_Details({Key? key}) : super(key: key);
@@ -33,15 +32,15 @@ class _Scheme_DetailsState extends State<Scheme_Details> {
               height: 350.0,
               fit: BoxFit.fill,
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
               child: Text("Order number"),
               // hintText: "Enter Product Name",
               /*border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20)*/
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
               child: Text("Order Items"),
               // hintText: "Enter Product Name",
               /*border: OutlineInputBorder(
@@ -49,7 +48,8 @@ class _Scheme_DetailsState extends State<Scheme_Details> {
             ),
 
 
-
+Text("Total amount is:"),
+            const TextField()
 
           ],),
       ),);
